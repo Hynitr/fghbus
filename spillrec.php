@@ -21,7 +21,7 @@ $bal = $sph['spilltot'] - $amt;
 
 <head>
     <meta charset="utf-8" />
-    <title>Daglore Bursary</title>
+    <title>FOGS Bursary</title>
     <link rel="icon" href="img/2.png" type="image/ico" />
     <style>
     .invoice-box {
@@ -144,9 +144,9 @@ $bal = $sph['spilltot'] - $amt;
                     <table>
                         <tr>
                             <td>
-                                Daglore Model School,<br />
-                                Ikole, Ekiti State.<br />
-                                +234 803 6105 151, +234 806 9722 512
+                                Fountain of Gold School,<br />
+                                Ota, Ogun State.<br />
+                                +234 813 677 0523
                             </td>
 
                             <td>

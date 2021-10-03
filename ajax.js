@@ -103,7 +103,7 @@ $(document).ready(function () {
 
   //--------- update session -----------//
   $("#upds").click(function () {
-    var ursfr = "Daglore";
+    var ursfr = "FGS";
 
     $("#ModalCenter").modal("show");
     $(toastr.error("Loading... Please wait"));
@@ -121,7 +121,7 @@ $(document).ready(function () {
   //--------- update session term -----------//
   $("#updt").click(function () {
     var trm = $("#trm").val();
-    var ursf = "Daglore";
+    var ursf = "FGS";
 
     $(toastr.error("Loading... Please wait"));
 

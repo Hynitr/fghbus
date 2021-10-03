@@ -39,7 +39,7 @@ $bal = $a - $amt;
 
 <head>
     <meta charset="utf-8" />
-    <title>Daglore Bursary</title>
+    <title>FOGS Bursary</title>
     <link rel="icon" href="img/2.png" type="image/ico" />
     <style>
     .invoice-box {
