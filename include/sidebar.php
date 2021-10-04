@@ -164,21 +164,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./input?id=Creche" class="nav-link">
+                                    <a href="./input?id=Reception" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Creche</p>
+                                        <p>Reception</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=KG 1" class="nav-link">
+                                    <a href="./input?id=Transition" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 1</p>
+                                        <p>Transition</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=KG 2" class="nav-link">
+                                    <a href="./input?id=Kindergarten" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 2</p>
+                                        <p>Kindergarten</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -194,33 +194,33 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=Basic 1" class="nav-link">
+                                    <a href="./input?id=Grade 1" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 1</p>
+                                        <p>Grade 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=Basic 2" class="nav-link">
+                                    <a href="./input?id=Grade 2" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 2</p>
+                                        <p>Grade 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=Basic 3" class="nav-link">
+                                    <a href="./input?id=Grade 3" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 3</p>
+                                        <p>Grade 3</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=Basic 4" class="nav-link">
+                                    <a href="./input?id=Grade 4" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 4</p>
+                                        <p>Grade 4</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./input?id=Basic 5" class="nav-link">
+                                    <a href="./input?id=Grade 5" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 5</p>
+                                        <p>Grade 5</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

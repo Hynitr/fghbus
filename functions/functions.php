@@ -233,16 +233,25 @@ if (isset($_POST['ursfr'])) {
 
 		
 	//update classes
-	if($cs == "Pre-School"){
+	if($cs == "Reception"){
 
-		$cls = "Reception";
+		$cls = "Transition";
+
+		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
+		$res = query($sql);
+		
+	} else {
+		
+	if($cs == "Transition"){
+
+		$cls = "Kindergarten";
 
 		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
 		$res = query($sql);
 		
 	} else {
 
-	if($cs == "Reception"){
+	if($cs == "Kindergarten"){
 
 			$cls = "Nursery 1";
 	
@@ -263,50 +272,50 @@ if (isset($_POST['ursfr'])) {
 
 	if($cs == "Nursery 2"){
 
-		$cls = "Basic 1";
+		$cls = "Grade 1";
 
 		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
 		$res = query($sql);
 		
 	} else {
 
-	if($cs == "Basic 1"){
+	if($cs == "Grade 1"){
 
-		$cls = "Basic 2";
-
-		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
-		$res = query($sql);
-		
-	} else {
-
-	if($cs == "Basic 2"){
-
-		$cls = "Basic 3";
+		$cls = "Grade 2";
 
 		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
 		$res = query($sql);
 		
 	} else {
 
-	if($cs == "Basic 3"){
+	if($cs == "Grade 2"){
 
-		$cls = "Basic 4";
-
-		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
-		$res = query($sql);
-		
-	} else {
-
-	if($cs == "Basic 4"){
-
-		$cls = "Basic 5&6";
+		$cls = "Grade 3";
 
 		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
 		$res = query($sql);
 		
 	} else {
 
-	if($cs == "Basic 5&6"){
+	if($cs == "Grade 3"){
+
+		$cls = "Grade 4";
+
+		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
+		$res = query($sql);
+		
+	} else {
+
+	if($cs == "Grade 4"){
+
+		$cls = "Grade 5";
+
+		$sql = "UPDATE student SET `session` = '$aca', `class` = '$cls', `fst` = '0', `snd` = '0', `trd` = '0'";
+		$res = query($sql);
+		
+	} else {
+
+	if($cs == "Grade 5"){
 
 		$cls = "JSS 1";
 
@@ -364,6 +373,7 @@ if (isset($_POST['ursfr'])) {
 
 		//do nothing
 		
+	}
 	}
 	}
 	}
