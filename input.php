@@ -108,6 +108,7 @@ if(!isset($_GET['id'])) {
                                                 <option id="descr">TextBooks</option>
                                                 <option id="descr">Stationeries</option>
                                                 <option id="descr">School Event</option>
+<option id="descr">All</option>
                                             </select>
                                         </div>
                                     </div>
