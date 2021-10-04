@@ -272,21 +272,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Creche" class="nav-link">
+                                    <a href="./allhistory?id=Reception" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Creche</p>
+                                        <p>Reception</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=KG 1" class="nav-link">
+                                    <a href="./allhistory?id=Transition" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 1</p>
+                                        <p>Transition</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=KG 2" class="nav-link">
+                                    <a href="./allhistory?id=Kindergarten" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 2</p>
+                                        <p>Kindergarten</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -302,33 +302,33 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Basic 1" class="nav-link">
+                                    <a href="./allhistory?id=Grade 1" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 1</p>
+                                        <p>Grade 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Basic 2" class="nav-link">
+                                    <a href="./allhistory?id=Grade 2" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 2</p>
+                                        <p>Grade 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Basic 3" class="nav-link">
+                                    <a href="./allhistory?id=Grade 3" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 3</p>
+                                        <p>Grade 3</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Basic 4" class="nav-link">
+                                    <a href="./allhistory?id=Grade 4" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 4</p>
+                                        <p>Grade 4</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./allhistory?id=Basic 5" class="nav-link">
+                                    <a href="./allhistory?id=Grade 5" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 5</p>
+                                        <p>Grade 5</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -381,21 +381,21 @@
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Creche" class="nav-link">
+                                    <a href="./transaction?id=Reception" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Creche</p>
+                                        <p>Reception</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=KG 1" class="nav-link">
+                                    <a href="./transaction?id=Transition" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 1</p>
+                                        <p>Transition</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=KG 2" class="nav-link">
+                                    <a href="./transaction?id=Kindergarten" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 2</p>
+                                        <p>Kindergarten</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -411,33 +411,33 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Basic 1" class="nav-link">
+                                    <a href="./transaction?id=Grade 1" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 1</p>
+                                        <p>Grade 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Basic 2" class="nav-link">
+                                    <a href="./transaction?id=Grade 2" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 2</p>
+                                        <p>Grade 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Basic 3" class="nav-link">
+                                    <a href="./transaction?id=Grade 3" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 3</p>
+                                        <p>Grade 3</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Basic 4" class="nav-link">
+                                    <a href="./transaction?id=Grade 4" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 4</p>
+                                        <p>Grade 4</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./transaction?id=Basic 5" class="nav-link">
+                                    <a href="./transaction?id=Grade 5" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 5</p>
+                                        <p>Grade 5</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -490,21 +490,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Creche" class="nav-link">
+                                    <a href="./recprev?id=Reception" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Creche</p>
+                                        <p>Reception</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=KG 1" class="nav-link">
+                                    <a href="./recprev?id=Transition" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 1</p>
+                                        <p>Transition</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=KG 2" class="nav-link">
+                                    <a href="./recprev?id=Kindergarten" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>KG 2</p>
+                                        <p>Kindergarten</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -520,33 +520,33 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Basic 1" class="nav-link">
+                                    <a href="./recprev?id=Grade 1" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 1</p>
+                                        <p>Grade 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Basic 2" class="nav-link">
+                                    <a href="./recprev?id=Grade 2" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 2</p>
+                                        <p>Grade 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Basic 3" class="nav-link">
+                                    <a href="./recprev?id=Grade 3" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 3</p>
+                                        <p>Grade 3</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Basic 4" class="nav-link">
+                                    <a href="./recprev?id=Grade 4" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 4</p>
+                                        <p>Grade 4</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./recprev?id=Basic 5" class="nav-link">
+                                    <a href="./recprev?id=Grade 5" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Basic 5</p>
+                                        <p>Grade 5</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -612,21 +612,21 @@
 
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="./payspill?id=Creche" class="nav-link">
+                                            <a href="./payspill?id=Reception" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Creche</p>
+                                                <p>Reception</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=KG 1" class="nav-link">
+                                            <a href="./payspill?id=Transition" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>KG 1</p>
+                                                <p>Transition</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=KG 2" class="nav-link">
+                                            <a href="./payspill?id=Kindergarten" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>KG 2</p>
+                                                <p>Kindergarten</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -642,33 +642,33 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=Basic 1" class="nav-link">
+                                            <a href="./payspill?id=Grade 1" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Basic 1</p>
+                                                <p>Grade 1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=Basic 2" class="nav-link">
+                                            <a href="./payspill?id=Grade 2" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Basic 2</p>
+                                                <p>Grade 2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=Basic 3" class="nav-link">
+                                            <a href="./payspill?id=Grade 3" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Basic 3</p>
+                                                <p>Grade 3</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="./payspill?id=Basic 4" class="nav-link">
+                                            <a href="./payspill?id=Grade 4" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Basic 4</p>
+                                                <p>Grade 4</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="./payspill?id=Basic 5" class="nav-link">
                                                 <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Basic 5</p>
+                                                <p>Grade 5</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
