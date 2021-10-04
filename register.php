@@ -39,7 +39,7 @@ include("functions/top.php"); ?>
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Admission No</label>
-                                            <input type="text" id="adid" class="form-control" placeholder="DMS/">
+                                            <input type="text" id="adid" class="form-control" placeholder="FOGS/">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
