@@ -1,6 +1,6 @@
 <?php
 include("functions/init.php");
-echo md5('adminlogin');
+echo md5('7175Tmjcf@');
 /*?8$gb = "UPDATE admin SET `password` = '$ab' WHERE `username` = 'Daglore'";
 $gf = query($gb);*/
 
