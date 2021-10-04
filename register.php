@@ -55,16 +55,16 @@ include("functions/top.php"); ?>
                                         <div class="form-group">
                                             <label>Select Class</label>
                                             <select id="clss" class="form-control">
-                                                <option id="clss">Creche</option>
-                                                <option id="clss">KG 1</option>
-                                                <option id="clss">KG 2</option>
+                                                <option id="clss">Reception</option>
+                                                <option id="clss">Transition</option>
+                                                <option id="clss">Kindergarten</option>
                                                 <option id="clss">Nursery 1</option>
                                                 <option id="clss">Nursery 2</option>
-                                                <option id="clss">Basic 1</option>
-                                                <option id="clss">Basic 2</option>
-                                                <option id="clss">Basic 3</option>
-                                                <option id="clss">Basic 4</option>
-                                                <option id="clss">Basic 5</option>
+                                                <option id="clss">Grade 1</option>
+                                                <option id="clss">Grade 2</option>
+                                                <option id="clss">Grade 3</option>
+                                                <option id="clss">Grade 4</option>
+                                                <option id="clss">Grade 5</option>
                                                 <option id="clss">J.S.S 1</option>
                                                 <option id="clss">J.S.S 2</option>
                                                 <option id="clss">J.S.S 3</option>
