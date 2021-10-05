@@ -103,12 +103,14 @@ if(!isset($_GET['id'])) {
                                         <div class="form-group">
                                             <label>Fee Description</label>
                                             <select id="descr" class="form-control">
-                                                <option id="descr">School Fees</option>
+                                                <option id="descr">Tuition </option>
                                                 <option id="descr">Uniform</option>
-                                                <option id="descr">TextBooks</option>
+                                                <option id="descr">Books</option>
                                                 <option id="descr">Stationeries</option>
                                                 <option id="descr">School Event</option>
-<option id="descr">All</option>
+                                                <option id="descr">External exams</option>
+                                                <option id="descr">Development fee</option>
+                                                <option id="descr">All</option>
                                             </select>
                                         </div>
                                     </div>
