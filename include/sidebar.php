@@ -490,6 +490,12 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="./debt" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>View All Debtors</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="./recprev?id=Reception" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Reception</p>

@@ -32,10 +32,10 @@ $ses = $_SESSION['aca'];
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info"><i class="fa fa-credit-card"></i></span>
+                        <span class="info-box-icon bg-success"><i class="fa fa-credit-card"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Net Profit</span>
+                            <span class="info-box-text text-success font-weight-bolder">Net Profit</span>
                             <?php  
                                     
                             $sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
@@ -45,7 +45,8 @@ $ses = $_SESSION['aca'];
                            
  
          ?>
-                            <span class="info-box-number">₦<?php  echo number_format($row['tota']); ?></span>
+                            <span
+                                class="info-box-number text-success font-weight-bolder">₦<?php  echo number_format($row['tota']); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -55,16 +56,16 @@ $ses = $_SESSION['aca'];
                 <!-- ./col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
+                        <span class="info-box-icon bg-danger"><i class="fas fa-users"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Total Expenses</span>
+                            <span class="info-box-text text-danger font-weight-bolder">Total Expenses</span>
 
                             <?php
 ?>
 
 
-                            <span class="info-box-number">₦</span>
+                            <span class="info-box-number text-danger font-weight-bolder">₦</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -73,10 +74,10 @@ $ses = $_SESSION['aca'];
                 <!-- ./col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-danger"><i class="fas fa-list"></i></span>
+                        <span class="info-box-icon bg-success"><i class="fas fa-list"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Total Unpaid Fees</span>
+                            <span class="info-box-text text-success font-weight-bolder">Total Unpaid Fees</span>
                             <?php
 
                             $sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
@@ -119,7 +120,8 @@ $ses = $_SESSION['aca'];
                  
  
          ?>
-                            <span class="info-box-number">₦<?php echo number_format($total); ?></span>
+                            <span
+                                class="info-box-number text-success font-weight-bolder">₦<?php echo number_format($total); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -128,10 +130,10 @@ $ses = $_SESSION['aca'];
 
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-primary"><i class="fas fa-history"></i></span>
+                        <span class="info-box-icon bg-danger"><i class="fas fa-history"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Total Spill Over</span>
+                            <span class="info-box-text text-danger font-weight-bolder">Total Spill Over</span>
                             <?php
 
                             $spill = "SELECT sum(`amount`) as spilltot FROM spillover";
@@ -151,7 +153,8 @@ $ses = $_SESSION['aca'];
                  
  
          ?>
-                            <span class="info-box-number">₦<?php echo number_format($spillover); ?></span>
+                            <span
+                                class="info-box-number text-danger font-weight-bolder">₦<?php echo number_format($spillover); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
