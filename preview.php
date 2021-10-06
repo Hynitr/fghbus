@@ -16,9 +16,7 @@ $other = $_GET['other'];
                 <button type="button" onclick="window.print();" id="prin" data-toggle="tooltip" title="Print Result"
                     class="btn btn-tool"><i class="fas fa-print"></i>
                 </button>
-                <button type="button" id="delte" data-toggle="tooltip" title="Delete Intake" class="btn btn-tool"><i
-                        class="fas fa-trash"></i>
-                </button>
+
                 <button type="button" id="prin" data-toggle="tooltip" title="Edit Intake" class="btn btn-tool"><i
                         class="fas fa-edit"></i>
                 </button>
@@ -53,7 +51,15 @@ $other = $_GET['other'];
                   {
                   ?>
                     <tr>
-                        <td><?php echo $row['adid'] ?></td>
+                        <td><?php echo $row['adid'] ?> <br /><a
+                                href="./deleteintake?id=<?php echo $data ?>&data=<?php echo $row['stid'] ?>&name=<?php echo $row['adid'] ?>"><button
+                                    type="button" data-toggle="tooltip" title="Delete Intake" class="btn btn-tool"><i
+                                        class="fas fa-trash text-danger"></i>
+                                </button></a> | <a
+                                href="editintake?id=<?php echo $data ?>&data=<?php echo $row['stid'] ?>&name=<?php echo $row['adid'] ?>"><button
+                                    type="button" data-toggle="tooltip" title="Edit Intake" class="btn btn-tool"><i
+                                        class="fas fa-edit text-danger"></i>
+                                </button></a></td>
                         <td><?php echo $row['name'] ?></td>
                         <td>₦<?php echo number_format($row['fst']) ?>
                         </td>

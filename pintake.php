@@ -190,3 +190,11 @@ function getResult() {
 </body>
 
 </html>
+<?php
+//check for notification
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Student/Pupil Deleted Sucessfully') {
+    
+    echo '<script>toastr.error("Student/Pupil Deleted Sucessfully")</script>';
+    unset($_SESSION['notify']);
+}
+?>
