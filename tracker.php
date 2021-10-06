@@ -147,6 +147,8 @@ include("functions/top.php");
                                             <select id="cinstd" class="form-control">
                                                 <?php
                           $sql = "SELECT * FROM student ORDER BY `name` asc";
+
+                          
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
                           ?>

@@ -698,7 +698,7 @@ if(isset($_POST['std']) && isset($_POST['fee']) && isset($_POST['mdd']) && isset
 //--- create custom fee ---//
 if(isset($_POST['cusfee']) && isset($_POST['cusamt']) && isset($_POST['cuspedt'])){
 
-	$cusfee  = $_POST['cusfee'];
+	$cusfee  = clean(escape($_POST['cusfee']));
 	$cusamt  = $_POST['cusamt'];
 	$cuspedt = $_POST['cuspedt'];
 	$term    = $_SESSION['trm'];

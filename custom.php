@@ -4,7 +4,7 @@ if(!isset($_GET['id'])) {
 
   redirect("./");
 } else {
-  $data = $_GET['id'];
+  $data = escape($_GET['id']);
 }
  ?>
 <!-- Content Wrapper. Contains page content -->
