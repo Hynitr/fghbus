@@ -1,11 +1,5 @@
 <?php
 include("functions/top.php");
-if(!isset($_GET['id'])) {
-
-  redirect("./");
-} else {
-  $data = $_GET['id'];
-}
  ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -14,12 +8,12 @@ if(!isset($_GET['id'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?php echo ucwords($data)?> Fee Record</h1>
+                    <h1>Expenses Tracker</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Fee Records</li>
+                        <li class="breadcrumb-item active">Expenses Tracker</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +22,7 @@ if(!isset($_GET['id'])) {
 
 
     <?php
- $sql="SELECT * from `".$data."`";
+ $sql="SELECT * from `tracker`";
  $result_set=query($sql);
  while($row= mysqli_fetch_array($result_set))
  {
@@ -43,7 +37,7 @@ if(!isset($_GET['id'])) {
             <div class="card card-dark">
                 <div class="card-header">
 
-                    <h3 class="card-title">Preview <?php echo $data; ?> fee record
+                    <h3 class="card-title">Preview Expenses
 
                     </h3>
 
@@ -138,7 +132,9 @@ if(!isset($_GET['id'])) {
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Input fee records for <?php echo $data ?></h3>
+                            <h3 class="card-title">Input Expenses -
+                                <?php echo date('l, F d, Y'); ?><br /><?php echo $_SESSION['trm']." - ".$_SESSION['aca']. " &nbsp;Academic Session" ?>
+                            </h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
