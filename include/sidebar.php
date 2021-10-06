@@ -145,7 +145,7 @@
                                 $sql = "SHOW TABLES";
                                 $result = query($sql);
                                 while ($row = mysqli_fetch_row($result)) {
-                                    if($row[0] == "admin" || $row[0] == "feercrd" || $row[0] == "spillover" || $row[0] == "student" || $row[0] == "fee") {
+                                    if($row[0] == "admin" || $row[0] == "feercrd" || $row[0] == "spillover" || $row[0] == "student" || $row[0] == "fee" || $row[0] == "tracker") {
                                     } else {
                                     echo'
                                 <li class="nav-item">
