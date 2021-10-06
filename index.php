@@ -42,6 +42,8 @@ $ses = $_SESSION['aca'];
                             $rsl = query($sql);
                             $row = mysqli_fetch_array($rsl);
 
+                            $ssl = "SELECT sum(``)"
+
                            
  
          ?>

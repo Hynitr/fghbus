@@ -793,4 +793,28 @@ if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd'])
 	echo '<script>window.location.href ="./custom?id='.$cfe.'"</script>';
 	}
 }
+
+
+
+//--- INSERT EXPENSES TRACKER -----------//
+if(isset($_POST['exname']) && isset($_POST['examt']) && isset($_POST['extype']) && isset($_POST['expay']) && isset($_POST['exdesc'])){
+
+	$exname = clean(escape($_POST['exname']));
+	$examt  = clean(escape($_POST['examt']));
+	$extype = clean(escape($_POST['extype']));
+	$expay  = clean(escape($_POST['expay']));
+	$exdesc = clean(escape($_POST['exdesc']));
+	
+	$date   = date("Y-m-d h:i:sa");
+	$ses    = $_SESSION['aca'];
+	$trm    = $_SESSION['trm'];
+	$expid = 'fgsexp/'.rand(0, 9999);
+
+	$sql = "INSERT INTO tracker(`trackid`, `name`, `date`, `session`, `term`, `descrip`, `type`, `mode`, `amount`)";
+	$sql .= "VALUES('$expid', '$exname', '$date', '$ses', '$trm', '$exdesc', '$extype', '$expay', '$examt')";
+	$res = query($sql);
+
+	echo "Loading...Please wait!";	
+	echo '<script>window.location.href ="./tracker"</script>';
+}
 ?>

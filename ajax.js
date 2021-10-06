@@ -228,4 +228,31 @@ $("#cinpaid").click(function () {
         });
       }
 });
+
+
+
+//--------- EXPENSES TRACKER ------//
+$("#exreg").click(function () {
+  var exname = $("#exname").val();
+  var examt = $("#examt").val();
+  var extype = $("#extype").val();
+  var expay   = $("#expay").val();
+  var exdesc   = $("#exdesc").val();
+
+ 
+    if (examt == "") {
+      $(toastr.error("Kindly input expenses fee"));
+    } else {
+      
+        $(toastr.error("Loading... Please wait"));
+        $.ajax({
+          type: "post",
+          url: "functions/init.php",
+          data: { exname: exname, examt: examt, extype: extype, expay: expay, exdesc:exdesc },
+          success: function (data) {
+            $(toastr.error(data)).html(data);
+          },
+        });
+      }
+});
 });

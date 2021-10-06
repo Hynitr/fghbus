@@ -70,9 +70,9 @@ include("functions/top.php");
                         <thead>
                             <tr>
 
-                                <th class="text-center">Admission No.</th>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Class</th>
+                                <th class="text-center">Expenses Name</th>
+                                <th class="text-center">Expenses Amount</th>
+                                <th class="text-center">Expenses Type</th>
                                 <th class="text-center">Amount Paid ()</th>
                                 <th class="text-center">Term - Session</th>
                                 <th class="text-center">Date Paid</th>
@@ -84,9 +84,7 @@ include("functions/top.php");
                             <tr>
                                 <?php
                  
- $sql = "SELECT * FROM `".$data."`  \n"
-
-    . "ORDER BY `name` asc";
+ $sql = "SELECT * FROM `tracker`";
  $result_set=query($sql);
  while($row= mysqli_fetch_array($result_set))
  {
@@ -140,63 +138,54 @@ include("functions/top.php");
                         <div class="card-body">
                             <form role="form">
                                 <div class="row">
+
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Select a <?php echo $data ?> student/pupil</label>
-                                            <select id="cinstd" class="form-control">
-                                                <?php
-                          $sql = "SELECT * FROM student ORDER BY `name` asc";
+                                            <label>Input Expenses Name</label>
+                                            <input type="text" id="exname" class="form-control" placeholder="e.g Fuel">
 
-                          
-                          $rsl = query($sql);
-                          while ($row = mysqli_fetch_array($rsl)) {
-                          ?>
-                                                <optgroup
-                                                    label="<?php echo $row['name'] ?> (<?php echo $row['class'] ?>)">
-                                                    <option name="class" id="cinstd"><?php echo $row['adid'] ?>
-                                                    </option>
-                                                </optgroup>
-                                                <?php
-                        }
-                        ?>
-                                            </select>
                                         </div>
                                     </div>
-
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Input Fee Paid(₦)</label>
-                                            <input type="number" id="cinfee" class="form-control">
-                                            <input type="text" id="cfee" value="<?php echo $data ?>"
-                                                class="form-control" hidden>
+                                            <label>Input Expenses Amount(₦)</label>
+                                            <input type="number" id="examt" class="form-control">
+
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- select -->
                                         <div class="form-group">
-                                            <label>Payment Type</label>
-                                            <select id="cinmdd" class="form-control">
-                                                <option id="cinmdd">Full Payment</option>
-                                                <option id="cinmdd">Part Payment</option>
+                                            <label>Expenses Type</label>
+                                            <select id="extype" class="form-control">
+                                                <option id="extype">Full Payment</option>
+                                                <option id="extype">Part Payment</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- select -->
                                         <div class="form-group">
-                                            <label>Payment Mode</label>
-                                            <select id="mddr" class="form-control">
-                                                <option id="mddr">Cash</option>
-                                                <option id="mddr">Bank</option>
-                                                <option id="mddr">School App</option>
+                                            <label>Mode of Expenses Payment</label>
+                                            <select id="expay" class="form-control">
+                                                <option id="expay">Cash</option>
+                                                <option id="expay">Bank</option>
+                                                <option id="expay">Outstanding Debt</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Expenses Description</label>
+                                            <input type="text" id="exdesc" class="form-control">
                                         </div>
                                     </div>
                                 </div>
 
-                                <button id="cinpaid" type="button" class="btn btn-primary">Register Record</button>
+                                <button id="exreg" type="button" class="btn btn-primary">Register Expenses</button>
 
                             </form>
                         </div>
