@@ -1,5 +1,20 @@
 <?php
-include("functions/top.php"); ?>
+include("functions/top.php");
+if(!isset($_GET['id'])) {
+
+    redirect("./pintake");
+} else {
+
+
+    $id = $_GET['id'];
+    $data = $_GET['data'];
+    $name = $_GET['name'];
+
+    $sql = "SELECT * FROM student WHERE `stid` = '$data'";
+    $rsl = query($sql);
+    $row = mysqli_fetch_array($rsl);
+}
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,7 +22,7 @@ include("functions/top.php"); ?>
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Register New Intake</h1>
+                    <h1>Edit Intake</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -39,7 +54,8 @@ include("functions/top.php"); ?>
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Admission No</label>
-                                            <input type="text" id="adid" class="form-control" placeholder="FOGS/">
+                                            <input type="text" id="adid" class="form-control"
+                                                value="<?php echo $row['adid'] ?>" placeholder="FOGS/">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -47,7 +63,7 @@ include("functions/top.php"); ?>
                                         <div class="form-group">
                                             <label>Full Student/Pupil Name</label>
                                             <input type="text" id="pname" class="form-control"
-                                                placeholder="SurName FirstName">
+                                                placeholder="SurName FirstName" value="<?php echo $row['name'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -55,6 +71,8 @@ include("functions/top.php"); ?>
                                         <div class="form-group">
                                             <label>Select Class</label>
                                             <select id="clss" class="form-control">
+                                                <option id="clss" class="font-weight-bolder"><?php echo $row['class'] ?>
+                                                </option>
                                                 <option id="clss">Reception</option>
                                                 <option id="clss">Transition</option>
                                                 <option id="clss">Kindergarten</option>
@@ -81,27 +99,31 @@ include("functions/top.php"); ?>
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>1st Term Fee</label>
-                                            <input type="number" id="fst" value='0' class="form-control" placeholder="">
+                                            <input type="number" id="fst" value='<?php echo $row['fst'] ?>'
+                                                class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>2nd Term Fee</label>
-                                            <input type="number" id="snd" value='0' class="form-control" placeholder="">
+                                            <input type="number" id="snd" value='<?php echo $row['snd'] ?>'
+                                                class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>3rd Term Fee</label>
-                                            <input type="number" id="trd" value='0' class="form-control" placeholder="">
+                                            <input type="number" id="trd" value='<?php echo $row['trd'] ?>'
+                                                class="form-control" placeholder="">
+                                            <input type="text" id="stid" value="<?php echo $data ?>" hidden>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <button id="prg" type="button" class="btn btn-primary">Register Record</button>
+                                <button id="uplprg" type="button" class="btn btn-primary">Update Record</button>
 
                             </form>
                         </div>

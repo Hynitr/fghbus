@@ -199,6 +199,56 @@ if(isset($_POST['pname']) && isset($_POST['clss']) && isset($_POST['fst']) && is
 
 
 
+//------------ update intake record ------//
+if(isset($_POST['uplpname']) && isset($_POST['uplclss']) && isset($_POST['uplfst']) && isset($_POST['uplsnd']) && isset($_POST['upltrd']) && isset($_POST['upladid']) && isset($_POST['stid'])) {
+
+	$uplpname = clean(escape($_POST['uplpname']));
+	$uplclss  = clean(escape($_POST['uplclss']));
+	$uplfst   = clean(escape($_POST['uplfst']));
+	$uplsnd   = clean(escape($_POST['uplsnd']));
+	$upltrd   = clean(escape($_POST['upltrd']));
+	$upladid  = clean(escape($_POST['upladid']));
+	$stid     = clean(escape($_POST['stid']));
+	$adid     = $upladid;
+	$trm   = $_SESSION['trm'];
+
+	if($uplfst == '' || $uplfst == '0' && $trm == '1st Term') {
+
+		echo "1st Term fee cannot be empty";
+	} else {
+
+	if ($uplsnd == '' || $uplsnd == '0' && $trm == '2nd Term') {
+			
+		echo "2nd Term fee cannot be empty";
+	} else {
+
+	if ($upltrd == '' || $upltrd == '0' && $trm == '3rd Term') {
+				
+		echo "3rd Term fee cannot be empty";
+	} else {
+
+	
+
+	$der = $_SESSION['aca'];
+
+	
+		//update db
+		$sqll = "UPDATE student SET `name` = '$uplpname', `class` = '$uplclss', `fst` = '$uplfst', `snd` = '$uplsnd', `trd` = '$upltrd', `adid` = '$adid' WHERE `session` = '$der' AND `stid` = '$stid'";
+		$resullt = query($sqll);
+		confirm($resullt);
+
+		echo "Loading...Please wait!";
+
+		//create notification
+		$_SESSION['notify'] = "Student/Pupil Updated Sucessfully";
+		echo '<script>window.location.href ="./pintake"</script>';
+}
+	}
+}
+}
+
+
+
 //---------- update session -----------//
 if (isset($_POST['ursfr'])) {
 

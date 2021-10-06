@@ -195,6 +195,14 @@ function getResult() {
 if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Student/Pupil Deleted Sucessfully') {
     
     echo '<script>toastr.error("Student/Pupil Deleted Sucessfully")</script>';
-    unset($_SESSION['notify']);
+    //unset($_SESSION['notify']);
+} else {
+
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Student/Pupil Updated Sucessfully') {
+    
+    echo '<script>toastr.error("Student/Pupil Updated Sucessfully")</script>';
+    //unset($_SESSION['notify']);
+    
+}
 }
 ?>

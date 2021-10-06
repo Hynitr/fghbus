@@ -35,6 +35,45 @@ $(document).ready(function () {
     }
   });
 
+
+  //---------- edit fee record ------//
+   $("#uplprg").click(function () {
+    var uplpname = $("#pname").val();
+    var upladid = $("#adid").val();
+    var uplclss = $("#clss").val();
+    var uplfst = $("#fst").val();
+    var uplsnd = $("#snd").val();
+    var upltrd = $("#trd").val();
+    var stid = $("#stid").val();
+
+    if (adid == null || adid == "") {
+      $(toastr.error("Kindly input student/pupil admission no"));
+    } else {
+      if (pname == null || pname == "") {
+        $(toastr.error("Kindly input the student/pupil name"));
+      } else {
+        $(toastr.error("Loading... Please wait"));
+
+        $.ajax({
+          type: "post",
+          url: "functions/init.php",
+          data: {
+            uplpname: uplpname,
+            uplclss: uplclss,
+            uplfst: uplfst,
+            uplsnd: uplsnd,
+            upltrd: upltrd,
+            upladid: upladid,
+            stid: stid,
+          },
+          success: function (data) {
+            $(toastr.error(data)).html(data);
+          },
+        });
+      }
+    }
+  });
+
   //--------- paid fee -------------//
   $("#paid").click(function () {
     var std = $("#std").val();
