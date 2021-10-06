@@ -35,7 +35,7 @@ $ses = $_SESSION['aca'];
                         <span class="info-box-icon bg-info"><i class="fa fa-credit-card"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Total Fees Paid</span>
+                            <span class="info-box-text">Net Profit</span>
                             <?php  
                                     
                             $sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
@@ -46,6 +46,25 @@ $ses = $_SESSION['aca'];
  
          ?>
                             <span class="info-box-number">₦<?php  echo number_format($row['tota']); ?></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- ./col -->
+                <!-- ./col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Expenses</span>
+
+                            <?php
+?>
+
+
+                            <span class="info-box-number">₦</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -138,61 +157,7 @@ $ses = $_SESSION['aca'];
                     </div>
                     <!-- /.info-box -->
                 </div>
-                <!-- ./col -->
-                <div class="col-md-3 col-sm-6 col-12">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Expected Income</span>
-                            <?php
-
-
-$sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
-$rsl = query($sql);
-$row = mysqli_fetch_array($rsl);
-
-
-if($trm == '1st Term') {
-
-    $ssl = "SELECT sum(fst) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
-
-    
-} else {
-
-if($trm == '2nd Term'){
-
-    $ssl = "SELECT sum(snd) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
-
-}else {
-
-if($trm == '3rd Term') {
-    
-    $ssl = "SELECT sum(trd) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
-}
-}
-}
-
-
-
-
-$total = $rsw['totas'] + $row['tota'];
-                 
- 
-         ?>
-                            <span class="info-box-number">₦<?php echo number_format($total) ?></span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- ./col -->
             </div>
             <!-- /.row -->
             <!-- TABLE: LATEST ORDERS -->
