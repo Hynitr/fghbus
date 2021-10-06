@@ -42,13 +42,16 @@ $ses = $_SESSION['aca'];
                             $rsl = query($sql);
                             $row = mysqli_fetch_array($rsl);
 
-                            $ssl = "SELECT sum(``)"
+                            $ssl = "SELECT sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
+                            $rel = query($ssl);
+                            $rww = mysqli_fetch_array($rel);
 
+                            $all = $row['tota'] - $rww['tot'];
                            
  
          ?>
                             <span
-                                class="info-box-number text-success font-weight-bolder">₦<?php  echo number_format($row['tota']); ?></span>
+                                class="info-box-number text-success font-weight-bolder">₦<?php  echo number_format($all); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -64,10 +67,14 @@ $ses = $_SESSION['aca'];
                             <span class="info-box-text text-danger font-weight-bolder">Total Expenses</span>
 
                             <?php
+                             $ssl = "SELECT sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
+                             $rel = query($ssl);
+                             $rww = mysqli_fetch_array($rel);
 ?>
 
 
-                            <span class="info-box-number text-danger font-weight-bolder">₦</span>
+                            <span
+                                class="info-box-number text-danger font-weight-bolder">₦<?php  echo number_format($rww['tot']); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

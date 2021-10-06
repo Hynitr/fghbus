@@ -73,10 +73,9 @@ include("functions/top.php");
                                 <th class="text-center">Expenses Name</th>
                                 <th class="text-center">Expenses Amount</th>
                                 <th class="text-center">Expenses Type</th>
-                                <th class="text-center">Amount Paid ()</th>
-                                <th class="text-center">Term - Session</th>
+                                <th class="text-center">Mode of Payment</th>
+                                <th class="text-center">Description</th>
                                 <th class="text-center">Date Paid</th>
-                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,17 +88,15 @@ include("functions/top.php");
  while($row= mysqli_fetch_array($result_set))
  {
           ?>
-                                <td><?php echo $row['admno']; ?></td>
                                 <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['class']; ?></td>
-                                <td class="font-weight-bolder text-danger"><?php echo number_format($row['amt']); ?>
-                                    (<?php echo $row['mode'] ." - ". $row['type'] ?>)</td>
-                                <td class="font-weight-bolder text-danger">
-                                    <?php echo $row['term'] ." - ". $row['ses']. " Session"; ?>
+                                <td class="text-danger font-weight-bolder">₦<?php echo number_format($row['amount']); ?>
                                 </td>
-                                <td><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></td>
-                                <td><a href="./cusprin?id=<?php echo $row['cusid'] ?>&data=<?php echo $data ?>">Print
-                                        Receipt</a></td>
+                                <td class="font-weight-bolder"><?php echo $row['type']; ?></td>
+                                <td><?php echo $row['mode']; ?></td>
+                                <td class="font-weight-bolder text-danger">
+                                    <?php echo $row['descrip']?>
+                                </td>
+                                <td><?php echo date('l, F d, Y', strtotime($row['date'])); ?></td>
                             </tr>
                             <?php
           } 
