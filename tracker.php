@@ -89,7 +89,7 @@ include("functions/top.php");
  {
           ?>
                                 <td><?php echo $row['name']; ?> - <a
-                                        href="./deletexp?id=<?php echo $row['id'] ?>"><button type="button"
+                                        href="./deletetracker?id=<?php echo $row['trackid'] ?>"><button type="button"
                                             data-toggle="tooltip" title="Delete Intake" class="btn btn-tool"><i
                                                 class="fas fa-trash text-danger"></i>
                                         </button></a></td>
@@ -288,3 +288,8 @@ $(function() {
 </body>
 
 </html>
+<?php
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == "Expenses Deleted Successfully") {
+    echo '<script>toastr.error("Expenses Deleted Successfully")</script>';
+}
+?>
