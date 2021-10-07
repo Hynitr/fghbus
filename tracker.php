@@ -88,9 +88,10 @@ include("functions/top.php");
  while($row= mysqli_fetch_array($result_set))
  {
           ?>
-                                <td><?php echo $row['name']; ?> - <a href="./deletexp?id=<?php echo $row['id'] ?>"><button
-                                            type="button" data-toggle="tooltip" title="Delete Intake"
-                                            class="btn btn-tool"><i class="fas fa-trash text-danger"></i>
+                                <td><?php echo $row['name']; ?> - <a
+                                        href="./deletexp?id=<?php echo $row['id'] ?>"><button type="button"
+                                            data-toggle="tooltip" title="Delete Intake" class="btn btn-tool"><i
+                                                class="fas fa-trash text-danger"></i>
                                         </button></a></td>
                                 <td class="text-danger font-weight-bolder">₦<?php echo number_format($row['amount']); ?>
                                 </td>
