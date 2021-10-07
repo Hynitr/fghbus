@@ -168,3 +168,19 @@ function getResult() {
 </body>
 
 </html>
+<?php
+//check for notification
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Fee Deleted Sucessfully') {
+    
+    echo '<script>toastr.error("Fee Deleted Sucessfully")</script>';
+    //unset($_SESSION['notify']);
+} else {
+
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Fee Updated Sucessfully') {
+    
+    echo '<script>toastr.error("Fee Updated Sucessfully")</script>';
+    //unset($_SESSION['notify']);
+    
+}
+}
+?>

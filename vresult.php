@@ -48,7 +48,14 @@ $data =  $_GET['id'];
 
   
           ?>
-                        <td><?php echo $row['feeid'] ?></td>
+                        <td><?php echo $row['feeid'] ?><br /><a
+                                href="./deletefee?id=<?php echo $row['feeid'] ?>"><button type="button"
+                                    data-toggle="tooltip" title="Delete fee" class="btn btn-tool"><i
+                                        class="fas fa-trash text-danger"></i>
+                                </button></a> | <a href="editfee?id=<?php echo $row['feeid'] ?>"><button type="button"
+                                    data-toggle="tooltip" title="Edit Intake" class="btn btn-tool"><i
+                                        class="fas fa-edit text-danger"></i>
+                                </button></a></td>
                         <td class="font-weight-bolder text-danger">₦<?php echo number_format($row['amount']); ?></td>
                         <td><?php echo $row['term']." ".$row['session']; ?></td>
                         <td class="text-danger"><?php echo $row['descr']; ?>
