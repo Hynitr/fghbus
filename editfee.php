@@ -138,7 +138,7 @@ if(!isset($_GET['id'])) {
                                 </div>
 
 
-                                <button id="paid" type="button" class="btn btn-primary">Register Record</button>
+                                <button id="edpaid" type="button" class="btn btn-primary">Update Record</button>
 
                             </form>
                         </div>

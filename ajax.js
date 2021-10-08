@@ -110,6 +110,47 @@ $(document).ready(function () {
     }
   });
 
+
+    //--------- edit paid fee -------------//
+    $("#edpaid").click(function () {
+      var edstd = $("#edstd").val();
+      var edtrm = $("#edtrm").val();
+      var edfee = $("#edfee").val();
+      var edmdd = $("#edmdd").val();
+      var eddescr = $("#eddescr").val();
+      var edfst = $("#edfst").val();
+      var edpde = $("#edpdet").val();
+      var edcls = $("#edcls").val();
+  
+      if (edstd == null || edstd == "") {
+        $(toastr.error("Kindly select a student/pupil"));
+      } else {
+        if (edfee == null || edfee == "") {
+          $(toastr.error("Kindly input the paid fee"));
+        } else {
+          $.ajax({
+            type: "post",
+            url: "functions/init.php",
+            data: {
+              edstd: edstd,
+              edtrm: edtrm,
+              edfee: edfee,
+              edcls: edcls,
+              edmdd: edmdd,
+              eddescr: eddescr,
+              edfst: edfst,
+              edpde: edpde,
+            },
+            success: function (data) {
+              $(toastr.error(data)).html(data);
+            },
+          });
+        }
+      }
+    });
+
+
+
   //------------- Pay intake ----------//
   $("#payspill").click(function () {
     var std = $("#std").val();

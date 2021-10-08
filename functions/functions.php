@@ -642,6 +642,87 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 
 
+//-------------- Edit input fee paid ---------------//
+if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) && isset($_POST['edcls']) && isset($_POST['edmdd']) && isset($_POST['eddescr']) && isset($_POST['edpde']) && isset($_POST['edfst'])) {
+
+	$edstd  = $_POST['edstd'];
+	$edtrm  = $_POST['edtrm'];
+	$edfee  = $_POST['edfee'];
+	$edcls  = $_POST['edcls'];
+	$edmdd  = $_POST['edmdd'];
+	$eddesc = $_POST['eddescr'];
+	$edpdet = $_POST['edpde'];
+	$edfst  = $_POST['edfst'];
+
+	
+	//check if the term fee
+	$sql = "SELECT * FROM student WHERE `session` = '$edfst' AND `adid` = '$edstd'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+
+	$name = $row['name'];
+	$class = $row['class'];
+
+	if($edtrm == '1st Term') {
+		
+		$a = $row['fst'];
+	} else {
+
+	if($edtrm == '2nd Term'){
+
+		$a = $row['snd'];
+	}else {
+
+	if($edtrm == '3rd Term') {
+		
+		$a = $row['trd'];
+	}
+	}
+	}
+
+	
+
+	//validate amount given
+	$ssl = "SELECT SUM(`amount`) AS total FROM feercrd WHERE `adid` = '$edstd' AND `session` = '$edfst' AND `term` = '$edtrm'";
+	$res = query($ssl);
+	$rwf = mysqli_fetch_array($res);
+
+	if($rwf['total'] == '') {
+		$tot = 0;
+	} else {
+
+		$tot = $rwf['total'];
+	}
+
+	//deduct term fee from total paid and get balance
+	$new = $a - $tot;
+	
+
+	//check amount paid
+	if($edfee > $new) {
+
+		echo "The fee inputted is greater than the fee stated for this term";
+	} else {
+
+		//insert new record to fee history
+		$sqlls = "UPDATE feercrd SET `amount` = '$edfee' , `term` = '$edtrm', `mode` = '$edmdd', `descr` = '$eddesc', `moredecr` = '$edpdet' WHERE `feeid` = '$edcls'";
+		$resullt = query($sqlls);
+		confirm($resullt);
+
+		echo "Loading...Please wait!";		
+		//create notification
+		$_SESSION['notify'] = "Fee Updated Sucessfully";
+		echo '<script>window.location.href ="./history?id='.$edstd.'&cls='.$class.'&trm='.$edtrm.'"</script>';
+
+
+	}
+	
+	
+}
+
+
+
+
 //----- Pay Spillover ------//
 if(isset($_POST['std']) && isset($_POST['fee']) && isset($_POST['mdd']) && isset($_POST['pdet'])) {
 	
