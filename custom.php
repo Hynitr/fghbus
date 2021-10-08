@@ -75,7 +75,7 @@ if(!isset($_GET['id'])) {
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-
+                                <th class="text-center"></th>
                                 <th class="text-center">Admission No.</th>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Class</th>
@@ -97,6 +97,10 @@ if(!isset($_GET['id'])) {
  while($row= mysqli_fetch_array($result_set))
  {
           ?>
+                                <td><a href="./deletecus?id=<?php echo $row['cusid'] ?>&cls=<?php echo $data ?>"><button
+                                            type="button" data-toggle="tooltip" title="Delete fee"
+                                            class="btn btn-tool"><i class="fas fa-trash text-danger"></i>
+                                        </button></a></td>
                                 <td><?php echo $row['admno']; ?></td>
                                 <td><?php echo $row['name']; ?></td>
                                 <td><?php echo $row['class']; ?></td>
@@ -300,3 +304,11 @@ $(function() {
 </body>
 
 </html>
+<?php
+//check for notification
+if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Custom Fee Deleted Sucessfully') {
+    
+    echo '<script>toastr.error("Custom Fee Deleted Sucessfully")</script>';
+    //unset($_SESSION['notify']);
+}
+?>
