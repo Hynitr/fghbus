@@ -6,6 +6,7 @@ if(!isset($_GET['id'])) {
 } else {
 
     $id = $_GET['id'];
+    $cls = $_GET['cls'];
 
     //echo $id."<br/>".$data."<br/>".$name;
 
@@ -16,7 +17,7 @@ if(!isset($_GET['id'])) {
     //create a notification
     $_SESSION['notify'] = "Fee Deleted Sucessfully";
 
-    redirect("./allhistory");
+    redirect("./allhistory?id=$cls");
     
 }
 ?>
