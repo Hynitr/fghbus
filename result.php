@@ -32,6 +32,7 @@ $cls = $_GET['cls'];
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Name</th>
                         <th>Fee</th>
                         <th>Fee Paid</th>
@@ -75,6 +76,14 @@ if($other == '3rd Term') {
 
   
           ?>
+                        <td><a href="./deletefee?id=<?php echo $row['feeid'] ?>&cls=<?php echo $row['class'] ?>"><button
+                                    type="button" data-toggle="tooltip" title="Delete fee" class="btn btn-tool"><i
+                                        class="fas fa-trash text-danger"></i>
+                                </button></a> | <a
+                                href="editfee?id=<?php echo $row['feeid'] ?>&cls=<?php echo $row['class'] ?>"><button
+                                    type="button" data-toggle="tooltip" title="Edit Intake" class="btn btn-tool"><i
+                                        class="fas fa-edit text-danger"></i>
+                                </button></a></td>
                         <td><?php echo ucwords($row['name']); ?></td>
                         <td>₦<?php echo number_format($a); ?></td>
                         <td>₦<?php echo number_format($row['Total']); ?></td>

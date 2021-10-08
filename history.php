@@ -49,6 +49,7 @@ $trm  = $_GET['trm'];
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Amount Paid</th>
                                         <th>Payment Description</th>
                                         <th>Mode of Payment</th>
@@ -66,6 +67,15 @@ $trm  = $_GET['trm'];
                   {
                   ?>
                                     <tr>
+                                        <td><a
+                                                href="./deletefee?id=<?php echo $row['feeid'] ?>&cls=<?php echo $row['class'] ?>"><button
+                                                    type="button" data-toggle="tooltip" title="Delete fee"
+                                                    class="btn btn-tool"><i class="fas fa-trash text-danger"></i>
+                                                </button></a> | <a
+                                                href="editfee?id=<?php echo $row['feeid'] ?>&cls=<?php echo $row['class'] ?>"><button
+                                                    type="button" data-toggle="tooltip" title="Edit Intake"
+                                                    class="btn btn-tool"><i class="fas fa-edit text-danger"></i>
+                                                </button></a></td>
                                         <td class="font-weight-bolder text-danger">
                                             ₦<?php echo number_format($row['amount']) ?></td>
                                         <td><?php echo $row['descr'] ?></td>
