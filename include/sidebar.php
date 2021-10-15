@@ -136,6 +136,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="./paymenttracker" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Payment Tracker</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="./createcustom" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Create New Fee</p>
