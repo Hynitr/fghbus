@@ -40,15 +40,26 @@ include("functions/top.php");
 
                             <select id="clss" class="form-control">
                                 <?php
-                          $sql = "SELECT * FROM student GROUP BY `name`";
+                          $sql = "SELECT * FROM student ORDER BY `name` asc";
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
+
+                            $myvalue = $row['name'];
+                            $arr = explode(' ',trim($myvalue));
+                            $new = $arr[0];
+
+                        $nsl = "SELECT * FROM student GROUP BY `name` WHERE `name` = '$new%'";
+                        $nes = query($nsl);
+                        while($res = mysqli_fetch_array($nes)) {
+
+                        
                           ?>
-                                <optgroup label="<?php echo $row['name'] ?>">
+                                <optgroup label="<?php echo $res['name']; ?> Family">
                                     <option name="class" id="clss"><?php echo $row['adid'] ?>
                                     </option>
                                 </optgroup>
                                 <?php
+                        }
                         }
                         ?>
                             </select>
