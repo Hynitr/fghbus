@@ -1,15 +1,21 @@
 <?php
 include("functions/init.php");
 
-$myvalue = 'Test me more';
-$arr = explode(' ',trim($myvalue));
-$new = $arr[0]; // will print Test
 
-$sql = "SELECT * FROM student ORDER BY `name` asc";
+
+
+
+$sql = "SELECT DISTINCT `name` FROM student ORDER BY `name` asc";
 $rsl = query($sql);
 while ($row = mysqli_fetch_array($rsl)) {
 
-  $myvalue = $row['name'];
+$myvalue = $row['name'];
+$arr = explode(' ',trim($myvalue));
+$new = $arr[0]; // will print Test
+
+$nes = "SELECT ";
+
+echo $new;
  
 }
 

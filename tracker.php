@@ -89,6 +89,11 @@ include("functions/top.php");
  $result_set=query($sql);
  while($row= mysqli_fetch_array($result_set))
  {
+     if(($row['qty'] || $row['total']) == '') {
+
+        $row['qty'] = 0;
+        $row['total'] = 0;
+     }
           ?>
                                 <td><?php echo $row['name']; ?> - <a
                                         href="./deletetracker?id=<?php echo $row['trackid'] ?>"><button type="button"
