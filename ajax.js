@@ -279,21 +279,29 @@ $("#exreg").click(function () {
   var extype = $("#extype").val();
   var expay   = $("#expay").val();
   var exdesc   = $("#exdesc").val();
+  var qty   = $("#qty").val();
 
  
     if (examt == "") {
       $(toastr.error("Kindly input expenses fee"));
     } else {
+
+      if(qty == '') {
+
+        $(toastr.error("Kindly input the quantity of items"));
+
+      } else {
       
         $(toastr.error("Loading... Please wait"));
         $.ajax({
           type: "post",
           url: "functions/init.php",
-          data: { exname: exname, examt: examt, extype: extype, expay: expay, exdesc:exdesc },
+          data: { exname: exname, examt: examt, extype: extype, expay: expay, exdesc:exdesc, qty:qty },
           success: function (data) {
             $(toastr.error(data)).html(data);
           },
         });
       }
+    }
 });
 });

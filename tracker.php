@@ -70,11 +70,13 @@ include("functions/top.php");
                         <thead>
                             <tr>
 
-                                <th class="text-center">Expenses Name</th>
-                                <th class="text-center">Expenses Amount</th>
-                                <th class="text-center">Expenses Type</th>
-                                <th class="text-center">Mode of Payment</th>
-                                <th class="text-center">Description</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Amount</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Type</th>
+                                <th class="text-center">Payment</th>
+                                <th class="text-center">Details</th>
                                 <th class="text-center">Date Paid</th>
                             </tr>
                         </thead>
@@ -94,6 +96,10 @@ include("functions/top.php");
                                                 class="fas fa-trash text-danger"></i>
                                         </button></a></td>
                                 <td class="text-danger font-weight-bolder">₦<?php echo number_format($row['amount']); ?>
+                                </td>
+                                <td class="text-danger font-weight-bolder"><?php echo number_format($row['qty']); ?>
+                                </td>
+                                <td class="text-danger font-weight-bolder">₦<?php echo number_format($row['total']); ?>
                                 </td>
                                 <td class="font-weight-bolder"><?php echo $row['type']; ?></td>
                                 <td><?php echo $row['mode']; ?></td>
@@ -151,11 +157,21 @@ include("functions/top.php");
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number" id="qty" class="form-control">
+
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
                                             <label>Input Expenses Amount(₦)</label>
                                             <input type="number" id="examt" class="form-control">
 
                                         </div>
                                     </div>
+                                    
                                     <div class="col-sm-6">
                                         <!-- select -->
                                         <div class="form-group">
@@ -166,7 +182,7 @@ include("functions/top.php");
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Mode of Expenses Payment</label>
