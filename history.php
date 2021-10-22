@@ -81,7 +81,7 @@ $trm  = $_GET['trm'];
                                         <td><?php echo $row['descr'] ?></td>
                                         <td><?php echo $row['mode'] ?></td>
                                         <td><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></td>
-                                        <td><a href="receipt?id=<?php echo $row['feeid'] ?>">Print Receipt</a></td>
+                                        <td><a href="receipt?id=<?php echo $row['adid'] ?>">Print Receipt</a></td>
                                     </tr>
                                     <?php
               }

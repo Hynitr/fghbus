@@ -3,7 +3,7 @@ include("functions/init.php");
 
 $data = $_GET['id'];
 
-$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `feeid` = '$data'";
+$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data'";
 $res = query($sql);
 $row = mysqli_fetch_array($res);
 

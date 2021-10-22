@@ -13,7 +13,6 @@ $myvalue = $row['name'];
 $arr = explode(' ',trim($myvalue));
 $new = $arr[0]; // will print Test
 
-$nes = "SELECT ";
 
 echo $new;
  
