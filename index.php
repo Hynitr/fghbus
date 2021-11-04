@@ -181,7 +181,7 @@ $ses = $_SESSION['aca'];
                 <div class="container-fluid">
                     <div class="row">
                         <!-- /.col-md-6 -->
-                        <div class="col-lg-12">
+                        <!--  <div class="col-lg-12">
 
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
@@ -201,7 +201,7 @@ $ses = $_SESSION['aca'];
                                     <button id="upds" type="button" class="btn btn-danger">Update Session</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>--->
                         <!-- /.col-md-6 -->
 
                         <div class="col-lg-6">
