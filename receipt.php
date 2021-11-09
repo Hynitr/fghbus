@@ -2,7 +2,14 @@
 include("functions/init.php");
 
 $data = $_GET['id'];
+$more = $_GET['more'];
 
+//get current fee
+$fsl = "SELECT * FROM feercrd WHERE `feeid` = '$more'";
+$fes = query($fsl);
+$fow = mysqli_fetch_array($fes);
+
+//get total paid fee
 $sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data'";
 $res = query($sql);
 $row = mysqli_fetch_array($res);
@@ -168,9 +175,9 @@ $bal = $a - $amt;
                             </td>
 
                             <td>
-                                <b><?php echo $row['name'] ?> (<?php echo $row['adid'] ?>)</b><br />
-                                <?php echo $row['class'] ?><br />
-                                <?php echo $row['term']." - ".$row['session'] ?> Session
+                                <b><?php echo $fow['name'] ?> (<?php echo $fow['adid'] ?>)</b><br />
+                                <?php echo $fow['class'] ?><br />
+                                <?php echo $fow['term']." - ".$fow['session'] ?> Session
                             </td>
                         </tr>
                     </table>
@@ -184,9 +191,9 @@ $bal = $a - $amt;
             </tr>
 
             <tr class="details">
-                <td><b><?php echo $row['mode']?></b></td>
+                <td><b><?php echo $fow['mode']?></b></td>
 
-                <td><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></td>
+                <td><?php echo date('l, F d, Y', strtotime($fow['datepaid'])); ?></td>
             </tr>
 
             <tr class="heading">
@@ -197,9 +204,9 @@ $bal = $a - $amt;
             </tr>
 
             <tr class="item">
-                <td><?php echo $row['descr'] ?> (<?php echo $row['moredecr'] ?>)</td>
+                <td><?php echo $fow['descr'] ?> (<?php echo $fow['moredecr'] ?>)</td>
 
-                <td>₦<?php echo number_format($row['amount']) ?></td>
+                <td>₦<?php echo number_format($fow['amount']) ?></td>
             </tr>
 
 
