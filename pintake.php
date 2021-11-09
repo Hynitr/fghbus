@@ -50,12 +50,12 @@ include("functions/top.php");
                                 <option id="clss">Grade 3</option>
                                 <option id="clss">Grade 4</option>
                                 <option id="clss">Grade 5</option>
-                                <option id="clss">JSS 1</option>
-                                <option id="clss">JSS 2</option>
-                                <option id="clss">JSS 3</option>
-                                <option id="clss">SSS 1</option>
-                                <option id="clss">SSS 2</option>
-                                <option id="clss">SSS 3</option>
+                                <option id="clss">J.S.S 1</option>
+                                <option id="clss">J.S.S 2</option>
+                                <option id="clss">J.S.S 3</option>
+                                <option id="clss">S.S.S 1</option>
+                                <option id="clss">S.S.S 2</option>
+                                <option id="clss">S.S.S 3</option>
 
                             </select>
 

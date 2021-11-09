@@ -167,7 +167,7 @@ include("functions/top.php");
 
                                         </div>
                                     </div>
-                                   
+
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -176,7 +176,7 @@ include("functions/top.php");
 
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-sm-6">
                                         <!-- select -->
                                         <div class="form-group">
