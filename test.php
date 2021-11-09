@@ -3,9 +3,15 @@ include("functions/init.php");
 
 
 
+/*payment tracker
+- split names into two
+- group records based on the first name
+- any where it finds a variabel, it sum up their record
 
+*/
 
-$sql = "SELECT DISTINCT `name` FROM student ORDER BY `name` asc";
+//split names into two
+$sql = "SELECT * FROM student ORDER BY `name` asc";
 $rsl = query($sql);
 while ($row = mysqli_fetch_array($rsl)) {
 
@@ -15,13 +21,8 @@ $new = $arr[0]; // will print Test
 
 echo $new;
 
-//generate from new record
-$ssl = "SELECT * FROM student WHERE class LIKE 'reception'";
-$res = query($ssl);
-$rrr = mysqli_fetch_array($res);
+//group the names as one
 
-echo $rrr['name'];
- 
 }
 
 //echo md5('7175Tmjcf@');

@@ -63,7 +63,7 @@ $data =  $_GET['id'];
                         </td>
                         <td><?php echo $row['moredecr'] ?></td>
                         <td><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></td>
-                        <td><a href="./prhis?id=<?php echo $row['adid'] ?>">
+                        <td><a href="./prhis?id=<?php echo $row['adid'] ?>&more=<?php echo $row['feeid'] ?>">
                                 Print Receipt</a></td>
                         </td>
                     </tr>
