@@ -13,8 +13,14 @@ $myvalue = $row['name'];
 $arr = explode(' ',trim($myvalue));
 $new = $arr[0]; // will print Test
 
-
 echo $new;
+
+//generate from new record
+$ssl = "SELECT * FROM student WHERE class LIKE 'reception'";
+$res = query($ssl);
+$rrr = mysqli_fetch_array($res);
+
+echo $rrr['name'];
  
 }
 
