@@ -60,6 +60,7 @@ $trm  = $_GET['trm'];
                                 <tbody>
                                     <?php
                   $der = $_SESSION['aca'];
+                  $tmr = $_SESSION['trm'];
 
                   $sql = "SELECT * FROM feercrd WHERE `session` = '$der' AND `adid` = '$data' AND `class` = '$cls' ORDER BY `id` desc";
                   $rsl = query($sql);

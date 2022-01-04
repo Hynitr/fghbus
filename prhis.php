@@ -10,15 +10,15 @@ $fes = query($fsl);
 $fow = mysqli_fetch_array($fes);
 
 //get total paid fee
-$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data'";
+$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data' AND `feeid` = '$more'";
 $res = query($sql);
 $row = mysqli_fetch_array($res);
 
-$adid = $row['adid'];
-$amt  = $row['total'];
+$adid  = $row['adid'];
+$amt   = $row['total'];
 $other = $row['term'];
 
-$ssl ="SELECT * from `student` WHERE `adid` = '$adid'";
+$ssl = "SELECT * from `student` WHERE `adid` = '$adid'";
 $result = query($ssl);
 $vfh = mysqli_fetch_array($result);
 
@@ -155,7 +155,7 @@ $bal = $a - $amt;
                             </td>
 
                             <td>
-                                <small> Receipt ID: <i><b><?php echo $data ?></b></i></small><br />
+                                <small> Receipt ID: <i><b><?php echo $more ?></b></i></small><br />
                                 <small> Printed: <i><b><?php echo date('l, F d, Y'); ?></b></i></small><br />
 
                             </td>

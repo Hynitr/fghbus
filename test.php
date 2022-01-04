@@ -11,7 +11,7 @@ include("functions/init.php");
 */
 
 //split names into two
-$sql = "SELECT * FROM student ORDER BY `name` asc";
+/*$sql = "SELECT * FROM student ORDER BY `name` asc";
 $rsl = query($sql);
 while ($row = mysqli_fetch_array($rsl)) {
 
@@ -19,11 +19,43 @@ $myvalue = $row['name'];
 $arr = explode(' ',trim($myvalue));
 $new = $arr[0]; // will print Test
 
+
+//create associative array
+$rr = array("a"=>"red","b"=>"green","c"=>"red");
+
 echo $new;
 
-//group the names as one
+}*/
 
+$sql = "SELECT * FROM student ORDER BY `name` asc";
+$rsl = query($sql);
+foreach($rsl as $row) {
+
+    $myvalue = $row['name'];
+    $arr = explode(' ',trim($myvalue));
+    $new = $arr[0]." "; // will print Test   
 }
+
+    $str = 'ABOLADE ABOLADE LESHI LESHI';
+    $st = implode(' ',array_unique(explode(' ', $str)));
+
+    echo md5('adminlogin');
+    //echo $st;
+/*while ($row = mysqli_fetch_assoc($rsl)) {
+
+    $myvalue = $row['name'];
+    $arr = explode(' ',trim($myvalue));
+    $new = $arr[0]." "; // will print Test
+
+    //echo $new;
+    $str = $new;
+    $st = implode(' ',array_unique(explode(' ', $str)));
+    echo $st;
+
+}*/
+
+
+    
 
 //echo md5('7175Tmjcf@');
 /*?8$gb = "UPDATE admin SET `password` = '$ab' WHERE `username` = 'Daglore'";
