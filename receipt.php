@@ -39,7 +39,48 @@ if($other == '3rd Term') {
 }
 }
 
-$bal = $a - $amt;
+if($_SESSION['trm'] == '2nd Term') {
+
+    //get all payement record
+    $sql = "SELECT *, sum(`fst`) as fee FROM student WHERE `adid` = '$adid'";
+    $res = query($sql);
+    $row = mysqli_fetch_array($res);
+    
+    $fstfee = $row['fee'];
+
+    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `adid` = '$adid'";
+    $des = query($dql);
+    $dow = mysqli_fetch_array($des);
+
+    $fstunpaid = $dow['total'];
+
+    $spillover = $fstfee - $fstunpaid;
+} else {
+
+   
+    if($_SESSION['trm'] == '3rd Term') {
+
+    //get all payement record
+    $sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student AND `adid` = '$adid'";
+    $res = query($sql);
+    $row = mysqli_fetch_array($res);
+    
+    $fstfee = $row['fee'] + $row['trdd'];
+
+    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `term` = '2nd Term' AND `adid` = '$adid'";
+    $des = query($dql);
+    $dow = mysqli_fetch_array($des);
+
+    $fstunpaid = $dow['total'];
+
+    $spillover = $fstfee - $fstunpaid;
+        
+    }
+    
+}
+
+$new = $a - $amt;
+$bal = $spillover + $new;
 ?>
 <!DOCTYPE html>
 <html>
@@ -208,6 +249,31 @@ $bal = $a - $amt;
 
                 <td>₦<?php echo number_format($fow['amount']) ?></td>
             </tr>
+            <?php
+            if($_SESSION['trm'] == '2nd Term') {
+
+                echo '
+                <tr class="item">
+                <td>1st Term Pending Balance</td>
+
+            <td>₦'.$spillover.'</td>
+            </tr>
+            ';
+            } 
+
+            if($_SESSION['trm'] == '3rd Term') {
+
+                echo '
+                <tr class="item">
+                <td>2nd Term Pending Balance</td>
+
+            <td>₦'.$spillover.'</td>
+            </tr>
+            ';
+            } 
+            ?>
+
+
 
 
 

@@ -1,7 +1,56 @@
 <?php
 include("functions/init.php");
 
+$adid = 'FGS/STUD/2021/10536';
 
+
+
+if($_SESSION['trm'] == '2nd Term') {
+
+    //get all payement record
+    $sql = "SELECT *, sum(`fst`) as fee FROM student WHERE `adid` = '$adid'";
+    $res = query($sql);
+    $row = mysqli_fetch_array($res);
+    
+    $fstfee = $row['fee'];
+
+    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `adid` = '$adid'";
+    $des = query($dql);
+    $dow = mysqli_fetch_array($des);
+
+    $fstunpaid = $dow['total'];
+
+    $spillover = $fstfee - $fstunpaid;
+
+    echo number_format($spillover);
+
+} else {
+
+   
+    if($_SESSION['trm'] == '3rd Term') {
+
+    //get all payement record
+    $sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student AND `adid` = '$adid'";
+    $res = query($sql);
+    $row = mysqli_fetch_array($res);
+    
+    $fstfee = $row['fee'] + $row['trdd'];
+
+    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `term` = '2nd Term' AND `adid` = '$adid'";
+    $des = query($dql);
+    $dow = mysqli_fetch_array($des);
+
+    $fstunpaid = $dow['total'];
+
+    $spillover = $fstfee - $fstunpaid;
+
+    echo number_format($spillover);
+        
+    }
+    
+}
+
+/*** 
 
 /*payment tracker
 - split names into two
@@ -25,7 +74,7 @@ $rr = array("a"=>"red","b"=>"green","c"=>"red");
 
 echo $new;
 
-}*/
+}
 
 $sql = "SELECT * FROM student ORDER BY `name` asc";
 $rsl = query($sql);

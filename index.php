@@ -143,27 +143,10 @@ $ses = $_SESSION['aca'];
 
                         <div class="info-box-content">
                             <span class="info-box-text text-danger font-weight-bolder">Total Spill Over</span>
-                            <?php
-
-                            $spill = "SELECT sum(`amount`) as spilltot FROM spillover";
-                            $spls  = query($spill);
-                            $sph   = mysqli_fetch_array($spls);
-
-
-                            //get spill paid
-                            $sgt ="SELECT sum(`amount`) as spillpay FROM feercrd WHERE `descr` = 'SpillOver Payment'";
-                            $sgl = query($sgt);
-                            $sgh = mysqli_fetch_array($sgl);
+                            <span class="info-box-number text-danger font-weight-bolder">₦
+                                <?php 
                             
-                            $spillover = $sph['spilltot'] - $sgh['spillpay'];
-                            
-
-                            
-                 
- 
-         ?>
-                            <span
-                                class="info-box-number text-danger font-weight-bolder">₦<?php echo number_format($spillover); ?></span>
+                                echo termlyspillover(); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

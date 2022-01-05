@@ -901,4 +901,54 @@ if(isset($_POST['exname']) && isset($_POST['examt']) && isset($_POST['extype']) 
 	echo "Loading...Please wait!";	
 	echo '<script>window.location.href ="./tracker"</script>';
 }
+
+
+
+function termlyspillover() {
+
+	if($_SESSION['trm'] == '2nd Term') {
+
+		//get all payement record
+		$sql = "SELECT *, sum(`fst`) as fee FROM student";
+		$res = query($sql);
+		$row = mysqli_fetch_array($res);
+		
+		$fstfee = $row['fee'];
+	
+		$dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term'";
+		$des = query($dql);
+		$dow = mysqli_fetch_array($des);
+	
+		$fstunpaid = $dow['total'];
+	
+		$spillover = $fstfee - $fstunpaid;
+	
+		echo number_format($spillover);
+	
+	} else {
+	
+	   
+		if($_SESSION['trm'] == '3rd Term') {
+	
+		//get all payement record
+		$sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student";
+		$res = query($sql);
+		$row = mysqli_fetch_array($res);
+		
+		$fstfee = $row['fee'] + $row['trdd'];
+	
+		$dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `term` = '2nd Term'";
+		$des = query($dql);
+		$dow = mysqli_fetch_array($des);
+	
+		$fstunpaid = $dow['total'];
+	
+		$spillover = $fstfee - $fstunpaid;
+	
+		echo number_format($spillover);
+			
+		}
+		
+	}
+}
 ?>
