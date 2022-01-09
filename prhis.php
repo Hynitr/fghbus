@@ -56,6 +56,27 @@ if($_SESSION['trm'] == '2nd Term') {
 
     $spillover = $fstfee - $fstunpaid;
 
+    if($spillover == '0' && $other == '1st term') {
+
+        $new = $spillover;
+        $bal = $vfh['snd'] ;
+        
+    } else {
+
+        if($spillover == '0' && $other == '2nd Term') {
+            
+            $new = $spillover;
+            $bal = $vfh['snd'] - $amt;
+            
+        } else {
+
+        //$bal = $vfh['snd'] - $amt;
+        $bal = $vfh['snd'] + $spillover;
+            
+        }
+    }
+
+
 } else {
 
    
@@ -75,13 +96,15 @@ if($_SESSION['trm'] == '2nd Term') {
     $fstunpaid = $dow['total'];
 
     $spillover = $fstfee - $fstunpaid;
+
+    $new = $a - $amt;
+    $bal = $spillover + $new;
         
     }
     
 }
 
-$new = $a - $amt;
-$bal = $spillover + $new;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -257,7 +280,7 @@ $bal = $spillover + $new;
                 <tr class="item">
                 <td>1st Term Pending Balance</td>
 
-            <td>₦'.$spillover.'</td>
+            <td>₦'.number_format($spillover).'</td>
             </tr>
             ';
             } 
