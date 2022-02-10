@@ -30,6 +30,11 @@ if(!isset($_GET['id'])) {
     <?php
  $sql="SELECT * from `".$data."`";
  $result_set=query($sql);
+
+ $ssl = "SELECT * from fee WHERE `fee` = '$data'";
+ $res = query($ssl);
+ $rww = mysqli_fetch_array($res);
+
  while($row= mysqli_fetch_array($result_set))
  {
   if(row_count($result_set) == "") {
@@ -142,7 +147,8 @@ if(!isset($_GET['id'])) {
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Input fee records for <?php echo $data ?></h3>
+                            <h3 class="card-title">Input fee records for <?php echo $data ?> (Amt -
+                                ₦<?php echo number_format($rww['amt']) ?>)</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
