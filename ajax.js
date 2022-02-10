@@ -251,6 +251,8 @@ $(document).ready(function () {
     var cinstd = $("#cinstd").val();
     var cfee = $("#cfee").val();
     var mddr = $("#mddr").val();
+    var cusdate = $("#cusdate").val();
+
 
     if (cinfee == "") {
       $(toastr.error("Kindly input fee paid"));
@@ -265,6 +267,7 @@ $(document).ready(function () {
           cinstd: cinstd,
           cfee: cfee,
           mddr: mddr,
+          cusdate: cusdate,
         },
         success: function (data) {
           $(toastr.error(data)).html(data);

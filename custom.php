@@ -19,7 +19,7 @@ if(!isset($_GET['id'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?php echo ucwords($data)?> Fee Record</h1>
+                    <h1>Input <?php echo ucwords($data)?> Fee Record</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -107,7 +107,8 @@ if(!isset($_GET['id'])) {
                                     <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Date Paid</label>
+                                            <label>DatePaid <small>(You can leave this field blank if payment was made
+                                                    today)</small></label>
                                             <input type="date" id="cusdate" class="form-control">
                                         </div>
                                     </div>

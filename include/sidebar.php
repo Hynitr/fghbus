@@ -142,7 +142,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./tracker" class="nav-link">
+                                    <a href="./cusprev" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Preview Custom Fee</p>
                                     </a>

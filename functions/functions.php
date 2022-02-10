@@ -849,7 +849,7 @@ function createcustom($cusfee) {
 
 
 //input custom fee
-if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd']) && isset($_POST['cfee']) && isset($_POST['mddr'])) {
+if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd']) && isset($_POST['cfee']) && isset($_POST['mddr']) && isset($_POST['cusdate'])) {
 
 	$mdd = $_POST['cinmdd'];
 	$fee = $_POST['cinfee'];
@@ -858,7 +858,16 @@ if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd'])
 	$mddr = $_POST['mddr'];
 	$term    = $_SESSION['trm'];
 	$ses     = $_SESSION['aca'];
-	$dat = date("Y-m-d");
+	$cusdate = $_POST['cusdate'];
+
+	if($cusdate == null || $cusdate == "") {
+
+		$dat = date("Y-m-d");
+
+	} else{
+
+		$dat = $cusdate;
+	}	
 
 	$cusid = 'fgstran/'.rand(0, 9999);
 
