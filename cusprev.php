@@ -33,9 +33,9 @@ include("functions/top.php");
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-               
+
                     <form name="printres" role="form">
-                  
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select a custom fee .:</label>
                             <?php
@@ -44,18 +44,18 @@ include("functions/top.php");
                           while ($row = mysqli_fetch_array($rsl)) {
                           ?>
                             <select id="fee" class="form-control">
-                               
 
-                                    <option name="fee" id="fee"><?php echo $row['fee'] ?>
-                                    </option>
-                              
+
+                                <option name="fee" id="fee"><?php echo $row['fee'] ?>
+                                </option>
+
                             </select>
                             <?php
                           }
                           ?>
                         </div>
 
-                       <!-- <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleInputPassword1">Select a Class.:</label>
                             <select id="clss" class="form-control">
                             <option id="clss">Reception</option>
@@ -80,18 +80,18 @@ include("functions/top.php");
                         <div class="form-group">
                             <label for="exampleInputPassword1">Academic Session.:</label>
                             <select id="ses" class="form-control">
-                            <?php
-                          $sql = "SELECT * FROM fee GROUP BY `ses` ORDER BY `fee` asc";
+                                <?php
+                          $sql = "SELECT * FROM `ses` ORDER BY `id` desc";
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
                           ?>
 
-                               <option name="ses" id="ses"><?php echo $row['ses'] ?>
-                               </option>
-                         <?php
+                                <option name="ses" id="ses"><?php echo $row['ses'] ?>
+                                </option>
+                                <?php
                           }
                           ?>
-                       </select>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -107,7 +107,7 @@ include("functions/top.php");
                         <button type="button" id="chkres" class="btn btn-danger btn-outline-light">Preview
                             Record</button>
                     </form>
-                   
+
                 </div>
                 <!-- /.card-body -->
 

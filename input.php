@@ -118,8 +118,20 @@ if(!isset($_GET['id'])) {
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Academic Session</label>
-                                            <input type="text" id="fst" class="form-control"
-                                                value="<?php echo $_SESSION['aca']; ?>" disabled>
+                                            <?php
+
+                            $sesl = "SELECT * FROM `ses` ORDER BY `id` desc";
+                            $resl = query($sesl);
+                            while($resw = mysqli_fetch_array($resl)) {
+                            ?>
+                                            <select id="fst" class="form-control">
+
+                                                <option id="fst"><?php echo $resw['ses'] ?></option>
+                                            </select>
+
+                                            <?php
+                            }
+                            ?>
                                         </div>
                                     </div>
                                     <div class="col-6">

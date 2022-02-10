@@ -157,7 +157,7 @@
                                 $sql = "SHOW TABLES";
                                 $result = query($sql);
                                 while ($row = mysqli_fetch_row($result)) {
-                                    if($row[0] == "admin" || $row[0] == "feercrd" || $row[0] == "spillover" || $row[0] == "student" || $row[0] == "fee" || $row[0] == "tracker") {
+                                    if($row[0] == "admin" || $row[0] == "feercrd" || $row[0] == "spillover" || $row[0] == "student" || $row[0] == "fee" || $row[0] == "tracker" || $row[0] == "ses") {
                                     } else {
                                     echo'
                                 <li class="nav-item">
@@ -169,7 +169,7 @@
                                     }
                                 }
                                 ?>
-                                
+
                             </ul>
                         </li>
                         <br />

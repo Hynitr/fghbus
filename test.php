@@ -1,9 +1,44 @@
 <?php
 include("functions/init.php");
 
-$adid = 'FGS/STUD/2021/10536';
+//$adid = 'FGS/STUD/2021/10536';
 
 
+# Name of table = names_table
+# Name of column containing names = full_name
+# Simply change the table and column name to what corresponds with your dataset
+
+/*$sql = "SELECT * FROM feercrd";
+$res = query($sql);
+while($row = mysqli_fetch_array($res)) {
+
+    $string = $row['name'];
+    $id = $row['feeid'];
+
+    $output = strtok($string,  ' ');
+    
+    //echo $output;
+
+$sel = "UPDATE feercrd SET `fname` = '$output' WHERE `feeid` = '$id'";
+$rel = query($sel);
+echo confirm($rel);
+
+}*/
+
+$sql = "SELECT sum("
+
+//family name
+//get total pay of family
+//get balance left of family
+
+
+
+
+
+# NB: This does not capture middle names
+
+
+/*
 
 if($_SESSION['trm'] == '2nd Term') {
 

@@ -59,8 +59,20 @@ $data = $_GET['id'];
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Academic Session.:</label>
-                            <input type="text" id="sbjyear" name="sbjyear" class="form-control"
-                                value="<?php echo $_SESSION['aca']; ?>" disabled>
+                            <?php
+
+                            $sesl = "SELECT * FROM `ses` ORDER BY `id` desc";
+                            $resl = query($sesl);
+                            while($resw = mysqli_fetch_array($resl)) {
+                            ?>
+                            <select id="sbjyear" name="sbjyear" class="form-control">
+
+                                <option id="sbjyear" name="sbjyear"><?php echo $resw['ses'] ?></option>
+                            </select>
+
+                            <?php
+                            }
+                            ?>
                         </div>
 
                         <div class="form-group">

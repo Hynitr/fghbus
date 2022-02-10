@@ -40,31 +40,51 @@ include("functions/top.php");
 
                             <select id="clss" class="form-control">
                                 <?php
-                          $sql = "SELECT * FROM student ORDER BY `name` asc";
+                          $sql = "SELECT * FROM feercrd GROUP BY `fname` ORDER BY `fname` asc";
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
 
-                            $myvalue = $row['name'];
-                            $arr = explode(' ',trim($myvalue));
-                            $new = $arr[0];
-
-                        $nsl = "SELECT * FROM student GROUP BY `name` WHERE `name` = '$new%'";
-                        $nes = query($nsl);
-                        while($res = mysqli_fetch_array($nes)) {
-
-                        
                           ?>
-                                <optgroup label="<?php echo $res['name']; ?> Family">
-                                    <option name="class" id="clss"><?php echo $row['adid'] ?>
-                                    </option>
-                                </optgroup>
+
+                                <option name="class" id="clss"><?php echo $row['fname'] ?> FAMILY
+                                </option>
                                 <?php
-                        }
                         }
                         ?>
                             </select>
 
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Academic Session.:</label>
+                            <?php
+
+                            $sesl = "SELECT * FROM `ses` ORDER BY `id` desc";
+                            $resl = query($sesl);
+                            while($resw = mysqli_fetch_array($resl)) {
+                            ?>
+                            <select id="sbjyear" name="sbjyear" class="form-control">
+
+                                <option id="sbjyear"><?php echo $resw['ses'] ?></option>
+                            </select>
+
+                            <?php
+                            }
+                            ?>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Select Term .:</label>
+                            <select name="ressbj" id="ressbj" class="form-control">
+
+                                <option id="ressbj">1st Term</option>
+                                <option id="ressbj">2nd Term</option>
+                                <option id="ressbj">3rd Term</option>
+                            </select>
+                        </div>
+
 
 
 
@@ -157,10 +177,12 @@ document.getElementById('chkres').addEventListener('click', getResult);
 
 function getResult() {
 
-    var z = document.forms["printres"]["clss"].value;
+    var x = document.forms["printres"]["clss"].value;
+    var y = document.forms["printres"]["sbjyear"].value;
+    var z = document.forms["printres"]["ressbj"].value;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', './vresult?id=' + z, true);
+    xhr.open('GET', './paymtres?id=' + x + '&ses=' + y + '&trm=' + z, true);
 
     xhr.onload = function() {
         if (xhr.status == 200) {
@@ -178,19 +200,3 @@ function getResult() {
 </body>
 
 </html>
-<?php
-//check for notification
-if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Fee Deleted Sucessfully') {
-    
-    echo '<script>toastr.error("Fee Deleted Sucessfully")</script>';
-    //unset($_SESSION['notify']);
-} else {
-
-if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Fee Updated Sucessfully') {
-    
-    echo '<script>toastr.error("Fee Updated Sucessfully")</script>';
-    //unset($_SESSION['notify']);
-    
-}
-}
-?>
