@@ -46,17 +46,17 @@ function display_message() {
 
 function validation_errors($error_message) {
 
-$error_message = <<<DELIMITER
+	$error_message = <<<DELIMITER
 
-<div style="background: #000000; color: white;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
-    <button type="button" style="color: white;" class="col-md-12 close sucess-op" data-dismiss="modal" aria-label="Close">
-		<span class="icon-sc-cl" aria-hidden="true">&times;</span>
-									</button>
-                 <p style="color: white;"><strong>$error_message </strong></p>
-                            </div>
-DELIMITER;
+	<div style="background: #000000; color: white;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
+		<button type="button" style="color: white;" class="col-md-12 close sucess-op" data-dismiss="modal" aria-label="Close">
+			<span class="icon-sc-cl" aria-hidden="true">&times;</span>
+										</button>
+					<p style="color: white;"><strong>$error_message </strong></p>
+								</div>
+	DELIMITER;
 
-   return $error_message;     
+	return $error_message;     
 
 }
 
@@ -64,16 +64,16 @@ DELIMITER;
 
 function validator($error_message) {
 
-$error_message = <<<DELIMITER
-<div style="background: #000000; color: white;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
-    <button type="button" style="color: white;" class="col-md-12 close sucess-op" data-dismiss="modal" aria-label="Close">
-		<span class="icon-sc-cl" aria-hidden="true">&times;</span>
-									</button>
-                 <p style="color: white;"><strong>$error_message </strong></p>
-                            </div>
-DELIMITER;
+	$error_message = <<<DELIMITER
+	<div style="background: #000000; color: white;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
+		<button type="button" style="color: white;" class="col-md-12 close sucess-op" data-dismiss="modal" aria-label="Close">
+			<span class="icon-sc-cl" aria-hidden="true">&times;</span>
+										</button>
+					<p style="color: white;"><strong>$error_message </strong></p>
+								</div>
+	DELIMITER;
 
-   return $error_message;     
+	return $error_message;     
 
 }
 
@@ -94,7 +94,7 @@ function table_exist($cusfee) {
 	}
 	mysqli_free_result($result);
 	
-	}
+}
 
 //check if admission number exit
 function adid_exist($adid) {
@@ -133,14 +133,14 @@ if (isset($_POST['password'])) {
 				 echo 'Loading.. Please wait';	
 				 echo '<script>window.location.href ="./"</script>';
 
-		} else {
+			} else {
 
-	echo "Incorrect Password";
-}
-} else {
+		echo "Incorrect Password";
+	}
+	} else {
 
-	echo "Wrongly typed password";
-}
+		echo "Wrongly typed password";
+	}
 }
 
 
@@ -191,10 +191,10 @@ if(isset($_POST['pname']) && isset($_POST['clss']) && isset($_POST['fst']) && is
 
 		echo "Loading...Please wait!";												
 		echo '<script>window.location.href ="./input?id='.$clss.'"</script>';
+		}
 	}
-}
+		}
 	}
-}
 }
 
 
@@ -242,9 +242,9 @@ if(isset($_POST['uplpname']) && isset($_POST['uplclss']) && isset($_POST['uplfst
 		//create notification
 		$_SESSION['notify'] = "Student/Pupil Updated Sucessfully";
 		echo '<script>window.location.href ="./pintake"</script>';
-}
 	}
-}
+		}
+	}
 }
 
 
@@ -824,27 +824,27 @@ if(isset($_POST['cusfee']) && isset($_POST['cusamt']) && isset($_POST['cuspedt']
 
 //create table custom fee
 function createcustom($cusfee) {
-// sql to create table
-$sql = "CREATE TABLE `".$cusfee."`
-(
-id INT(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-cusid text(255),
-admno text(255),
-name text(255),
-class text(255),
-term text(255),
-ses text(255),
-amt text(255),
-datepaid date,
-mode text(255),
-type text(255)
-)";
-$result = query($sql);
-confirm($result);	
-if(!$result) {
+	// sql to create table
+	$sql = "CREATE TABLE `".$cusfee."`
+	(
+	id INT(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	cusid text(255),
+	admno text(255),
+	name text(255),
+	class text(255),
+	term text(255),
+	ses text(255),
+	amt text(255),
+	datepaid date,
+	mode text(255),
+	type text(255)
+	)";
+	$result = query($sql);
+	confirm($result);	
+	if(!$result) {
 
-	die("This Fee already exit in the database.");
-}
+		die("This Fee already exit in the database.");
+	}
 }
 
 
@@ -890,6 +890,9 @@ if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd'])
 	$ins = "INSERT INTO `".$cfe."`(`cusid`, `admno`, `name`, `class`, `term`, `ses`, `amt`, `datepaid`, `mode`, `type`)";
 	$ins .= "VALUES('$cusid', '$std', '$name', '$clas', '$term', '$ses', '$fee', '$dat', '$mddr', '$mdd')";
 	$isl = query($ins);
+
+	$_SESSION['done'] = 'fee inputted successfully';
+
 	echo '<script>window.location.href ="./custom?id='.$cfe.'"</script>';
 	}
 }

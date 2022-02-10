@@ -142,6 +142,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="./tracker" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Preview Custom Fee</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="./createcustom" class="nav-link">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Create New Fee</p>
@@ -163,6 +169,7 @@
                                     }
                                 }
                                 ?>
+                                
                             </ul>
                         </li>
                         <br />

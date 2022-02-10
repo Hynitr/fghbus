@@ -5,6 +5,11 @@ if(!isset($_GET['id'])) {
   redirect("./");
 } else {
   $data = escape($_GET['id']);
+
+ $ssl = "SELECT * from fee WHERE `fee` = '$data'";
+ $res = query($ssl);
+ $rww = mysqli_fetch_array($res);
+
 }
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -27,115 +32,6 @@ if(!isset($_GET['id'])) {
     </section>
 
 
-    <?php
- $sql="SELECT * from `".$data."`";
- $result_set=query($sql);
-
- $ssl = "SELECT * from fee WHERE `fee` = '$data'";
- $res = query($ssl);
- $rww = mysqli_fetch_array($res);
-
- while($row= mysqli_fetch_array($result_set))
- {
-  if(row_count($result_set) == "") {
-            
-          } else {
-          ?>
-
-    <section id="preview" class="content">
-        <!-- right column -->
-        <div class="col-md-12">
-            <div class="card card-dark">
-                <div class="card-header">
-
-                    <h3 class="card-title">Preview <?php echo $data; ?> fee record
-
-                    </h3>
-
-
-                    <!---
-                    <div class="card-tools">
-                        <button type="button" id="del" data-toggle="modal" data-target="#modal-reset"
-                            data-toggle="tooltip" title="Reset this subject" class="btn btn-tool"><i
-                                class="fas fa-recycle"></i>
-                        </button>
-                        <button type="button" id="del" data-toggle="modal" data-target="#modal-edit"
-                            data-toggle="tooltip" title="Edit Time allowed, Questions to be attempted and Instructions"
-                            class="btn btn-tool"><i class="fas fa-clock"></i>
-                        </button>
-                        <button type="button" id="del" data-toggle="modal" data-target="#modal-delete"
-                            data-toggle="tooltip" title="Delete a question" class="btn btn-tool"><i
-                                class="fas fa-trash"></i>
-                        </button>
-                        <button type="button" data-toggle="tooltip" title="Maximize" class="btn btn-tool"
-                            data-card-widget="maximize"><i class="fas fa-expand"></i>
-                        </button>
-                        <button type="button" data-toggle="tooltip" title="Minimize" class="btn btn-tool"
-                            data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>
-                    </div>--->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center"></th>
-                                <th class="text-center">Admission No.</th>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Class</th>
-                                <th class="text-center">Amount Paid ()</th>
-                                <th class="text-center">Term - Session</th>
-                                <th class="text-center">Date Paid</th>
-                                <th class="text-center"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <?php
-                 
- $sql = "SELECT * FROM `".$data."`  \n"
-
-    . "ORDER BY `name` asc";
- $result_set=query($sql);
- while($row= mysqli_fetch_array($result_set))
- {
-          ?>
-                                <td><a href="./deletecus?id=<?php echo $row['cusid'] ?>&cls=<?php echo $data ?>"><button
-                                            type="button" data-toggle="tooltip" title="Delete fee"
-                                            class="btn btn-tool"><i class="fas fa-trash text-danger"></i>
-                                        </button></a></td>
-                                <td><?php echo $row['admno']; ?></td>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['class']; ?></td>
-                                <td class="font-weight-bolder text-danger"><?php echo number_format($row['amt']); ?>
-                                    (<?php echo $row['mode'] ." - ". $row['type'] ?>)</td>
-                                <td class="font-weight-bolder text-danger">
-                                    <?php echo $row['term'] ." - ". $row['ses']. " Session"; ?>
-                                </td>
-                                <td><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></td>
-                                <td><a href="./cusprin?id=<?php echo $row['cusid'] ?>&data=<?php echo $data ?>">Print
-                                        Receipt</a></td>
-                            </tr>
-                            <?php
-          } 
-          ?>
-                        </tbody>
-
-                    </table>
-
-                </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-        </div>
-    </section>
-    <?php
-}
-}
-?>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -147,7 +43,7 @@ if(!isset($_GET['id'])) {
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Input fee records for <?php echo $data ?> (Amt -
+                            <h3 class="card-title">Input fee records for <?php echo $data ?> (Fee -
                                 ₦<?php echo number_format($rww['amt']) ?>)</h3>
                         </div>
                         <!-- /.card-header -->
@@ -185,7 +81,7 @@ if(!isset($_GET['id'])) {
                                                 class="form-control" hidden>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Payment Type</label>
@@ -195,7 +91,8 @@ if(!isset($_GET['id'])) {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+
+                                    <div class="col-sm-4">
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Payment Mode</label>
@@ -206,6 +103,15 @@ if(!isset($_GET['id'])) {
                                             </select>
                                         </div>
                                     </div>
+
+                                    <div class="col-sm-4">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Date Paid</label>
+                                            <input type="date" id="cusdate" class="form-control">
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <button id="cinpaid" type="button" class="btn btn-primary">Register Record</button>
@@ -312,9 +218,9 @@ $(function() {
 </html>
 <?php
 //check for notification
-if(isset($_SESSION['notify']) && $_SESSION['notify'] == 'Custom Fee Deleted Sucessfully') {
+if(isset($_SESSION['done']) && $_SESSION['done'] == 'fee inputted successfully') {
     
-    echo '<script>toastr.error("Custom Fee Deleted Sucessfully")</script>';
-    //unset($_SESSION['notify']);
+    echo '<script>toastr.error("Fee inputted successfully")</script>';
+    unset($_SESSION['done']);
 }
 ?>
