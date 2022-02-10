@@ -666,7 +666,7 @@ if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) &
 
 	if($edpdate == null || $edpdate == "") {
 
-		$date = ;
+		$date = date("Y-m-d");
 		
 	} else {
 
@@ -724,7 +724,7 @@ if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) &
 	} else {
 
 		//insert new record to fee history
-		$sqlls = "UPDATE feercrd SET `amount` = '$edfee' , `term` = '$edtrm', `mode` = '$edmdd', `descr` = '$eddesc', `moredecr` = '$edpdet' WHERE `feeid` = '$edcls'";
+		$sqlls = "UPDATE feercrd SET `amount` = '$edfee' , `term` = '$edtrm', `mode` = '$edmdd', `descr` = '$eddesc', `moredecr` = '$edpdet', `datepaid` = '$date' WHERE `feeid` = '$edcls'";
 		$resullt = query($sqlls);
 		confirm($resullt);
 
