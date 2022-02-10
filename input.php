@@ -122,12 +122,21 @@ if(!isset($_GET['id'])) {
                                                 value="<?php echo $_SESSION['aca']; ?>" disabled>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
+                                    <div class="col-6">
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>Write a short description for this payment</label>
                                             <input type="text" id="pdet" class="form-control"
                                                 placeholder="e.g Excursion, party, school fees, e.t.c">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Payment Date <small>(You can leave this field blank if the
+                                                    payment was made
+                                                    today)</small></label>
+                                            <input type="date" id="pdat" class="form-control">
                                         </div>
                                     </div>
 

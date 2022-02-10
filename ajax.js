@@ -35,9 +35,8 @@ $(document).ready(function () {
     }
   });
 
-
   //---------- edit fee record ------//
-   $("#uplprg").click(function () {
+  $("#uplprg").click(function () {
     var uplpname = $("#pname").val();
     var upladid = $("#adid").val();
     var uplclss = $("#clss").val();
@@ -83,6 +82,7 @@ $(document).ready(function () {
     var descr = $("#descr").val();
     var pde = $("#pdet").val();
     var cls = $("#cls").val();
+    var pdat = $("#pdat").val();
 
     if (std == null || std == "") {
       $(toastr.error("Kindly select a student/pupil"));
@@ -101,6 +101,7 @@ $(document).ready(function () {
             mdd: mdd,
             descr: descr,
             pde: pde,
+            pdat: pdat,
           },
           success: function (data) {
             $(toastr.error(data)).html(data);
@@ -110,46 +111,45 @@ $(document).ready(function () {
     }
   });
 
+  //--------- edit paid fee -------------//
+  $("#edpaid").click(function () {
+    var edstd = $("#edstd").val();
+    var edtrm = $("#edtrm").val();
+    var edfee = $("#edfee").val();
+    var edmdd = $("#edmdd").val();
+    var eddescr = $("#eddescr").val();
+    var edfst = $("#edfst").val();
+    var edpde = $("#edpdet").val();
+    var edcls = $("#edcls").val();
+    var edpdate = $("#edpdate").val();
 
-    //--------- edit paid fee -------------//
-    $("#edpaid").click(function () {
-      var edstd = $("#edstd").val();
-      var edtrm = $("#edtrm").val();
-      var edfee = $("#edfee").val();
-      var edmdd = $("#edmdd").val();
-      var eddescr = $("#eddescr").val();
-      var edfst = $("#edfst").val();
-      var edpde = $("#edpdet").val();
-      var edcls = $("#edcls").val();
-  
-      if (edstd == null || edstd == "") {
-        $(toastr.error("Kindly select a student/pupil"));
+    if (edstd == null || edstd == "") {
+      $(toastr.error("Kindly select a student/pupil"));
+    } else {
+      if (edfee == null || edfee == "") {
+        $(toastr.error("Kindly input the paid fee"));
       } else {
-        if (edfee == null || edfee == "") {
-          $(toastr.error("Kindly input the paid fee"));
-        } else {
-          $.ajax({
-            type: "post",
-            url: "functions/init.php",
-            data: {
-              edstd: edstd,
-              edtrm: edtrm,
-              edfee: edfee,
-              edcls: edcls,
-              edmdd: edmdd,
-              eddescr: eddescr,
-              edfst: edfst,
-              edpde: edpde,
-            },
-            success: function (data) {
-              $(toastr.error(data)).html(data);
-            },
-          });
-        }
+        $.ajax({
+          type: "post",
+          url: "functions/init.php",
+          data: {
+            edstd: edstd,
+            edtrm: edtrm,
+            edfee: edfee,
+            edcls: edcls,
+            edmdd: edmdd,
+            eddescr: eddescr,
+            edfst: edfst,
+            edpde: edpde,
+            edpdate: edpdate,
+          },
+          success: function (data) {
+            $(toastr.error(data)).html(data);
+          },
+        });
       }
-    });
-
-
+    }
+  });
 
   //------------- Pay intake ----------//
   $("#payspill").click(function () {
@@ -244,64 +244,67 @@ $(document).ready(function () {
     }
   });
 
+  //----- input custom fee -----//
+  $("#cinpaid").click(function () {
+    var cinmdd = $("#cinmdd").val();
+    var cinfee = $("#cinfee").val();
+    var cinstd = $("#cinstd").val();
+    var cfee = $("#cfee").val();
+    var mddr = $("#mddr").val();
 
-//----- input custom fee -----//
-$("#cinpaid").click(function () {
-  var cinmdd = $("#cinmdd").val();
-  var cinfee = $("#cinfee").val();
-  var cinstd = $("#cinstd").val();
-  var cfee   = $("#cfee").val();
-  var mddr   = $("#mddr").val();
-
- 
     if (cinfee == "") {
       $(toastr.error("Kindly input fee paid"));
     } else {
-      
-        $(toastr.error("Loading... Please wait"));
-        $.ajax({
-          type: "post",
-          url: "functions/init.php",
-          data: { cinmdd: cinmdd, cinfee: cinfee, cinstd: cinstd, cfee: cfee, mddr:mddr },
-          success: function (data) {
-            $(toastr.error(data)).html(data);
-          },
-        });
-      }
-});
+      $(toastr.error("Loading... Please wait"));
+      $.ajax({
+        type: "post",
+        url: "functions/init.php",
+        data: {
+          cinmdd: cinmdd,
+          cinfee: cinfee,
+          cinstd: cinstd,
+          cfee: cfee,
+          mddr: mddr,
+        },
+        success: function (data) {
+          $(toastr.error(data)).html(data);
+        },
+      });
+    }
+  });
 
+  //--------- EXPENSES TRACKER ------//
+  $("#exreg").click(function () {
+    var exname = $("#exname").val();
+    var examt = $("#examt").val();
+    var extype = $("#extype").val();
+    var expay = $("#expay").val();
+    var exdesc = $("#exdesc").val();
+    var qty = $("#qty").val();
 
-
-//--------- EXPENSES TRACKER ------//
-$("#exreg").click(function () {
-  var exname = $("#exname").val();
-  var examt = $("#examt").val();
-  var extype = $("#extype").val();
-  var expay   = $("#expay").val();
-  var exdesc   = $("#exdesc").val();
-  var qty   = $("#qty").val();
-
- 
     if (examt == "") {
       $(toastr.error("Kindly input expenses fee"));
     } else {
-
-      if(qty == '') {
-
+      if (qty == "") {
         $(toastr.error("Kindly input the quantity of items"));
-
       } else {
-      
         $(toastr.error("Loading... Please wait"));
         $.ajax({
           type: "post",
           url: "functions/init.php",
-          data: { exname: exname, examt: examt, extype: extype, expay: expay, exdesc:exdesc, qty:qty },
+          data: {
+            exname: exname,
+            examt: examt,
+            extype: extype,
+            expay: expay,
+            exdesc: exdesc,
+            qty: qty,
+          },
           success: function (data) {
             $(toastr.error(data)).html(data);
           },
         });
       }
     }
-});
+  });
 });

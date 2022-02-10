@@ -559,7 +559,7 @@ if (isset($_POST['trm']) && isset($_POST['ursf'])) {
 
 
 //-------------- input fee paid ---------------//
-if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isset($_POST['cls']) && isset($_POST['mdd']) && isset($_POST['descr']) && isset($_POST['pde'])) {
+if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isset($_POST['cls']) && isset($_POST['mdd']) && isset($_POST['descr']) && isset($_POST['pde']) && isset($_POST['pdat'])) {
 
 	$std  = $_POST['std'];
 	$trm  = $_POST['trm'];
@@ -568,12 +568,21 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 	$mdd  = $_POST['mdd'];
 	$desc = $_POST['descr'];
 	$pdet = $_POST['pde'];
+	$pdat = $_POST['pdat'];
 
 	$red  = $_SESSION['aca'];
 
 	$fid = 'fgstran/'.rand(0, 9999);
 
-	$date = date("Y-m-d");
+	if($pdat == null || $pdat == "") {
+
+		$date = date("Y-m-d");
+
+	} else {
+
+		$date = $pdat;
+	}
+	
 	
 
 	//check if the term fee
@@ -643,7 +652,7 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 
 //-------------- Edit input fee paid ---------------//
-if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) && isset($_POST['edcls']) && isset($_POST['edmdd']) && isset($_POST['eddescr']) && isset($_POST['edpde']) && isset($_POST['edfst'])) {
+if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) && isset($_POST['edcls']) && isset($_POST['edmdd']) && isset($_POST['eddescr']) && isset($_POST['edpde']) && isset($_POST['edfst']) && isset($_POST['edpdate'])) {
 
 	$edstd  = $_POST['edstd'];
 	$edtrm  = $_POST['edtrm'];
@@ -653,6 +662,16 @@ if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) &
 	$eddesc = $_POST['eddescr'];
 	$edpdet = $_POST['edpde'];
 	$edfst  = $_POST['edfst'];
+	$edpdate = $_POST['edpdate'];
+
+	if($edpdate == null || $edpdate == "") {
+
+		$date = ;
+		
+	} else {
+
+		$date = $edpdate;
+	}
 
 	
 	//check if the term fee
