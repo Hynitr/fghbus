@@ -1,6 +1,5 @@
 <?php
 include("functions/top.php");
-$data = $_GET['id'];
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -9,12 +8,12 @@ $data = $_GET['id'];
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><?php echo $data ?> Fee Record</h1>
+                    <h1 class="m-0 text-dark">Preview Custom Fee Record</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Preview Fee</li>
+                        <li class="breadcrumb-item active">Preview Custom Fee</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -34,40 +33,66 @@ $data = $_GET['id'];
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+               
                     <form name="printres" role="form">
+                  
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Select a custom fee .:</label>
+                            <?php
+                          $sql = "SELECT * FROM fee ORDER BY `fee` asc";
+                          $rsl = query($sql);
+                          while ($row = mysqli_fetch_array($rsl)) {
+                          ?>
+                            <select id="fee" class="form-control">
+                               
+
+                                    <option name="fee" id="fee"><?php echo $row['fee'] ?>
+                                    </option>
+                              
+                            </select>
+                            <?php
+                          }
+                          ?>
+                        </div>
+
+                       <!-- <div class="form-group">
+                            <label for="exampleInputPassword1">Select a Class.:</label>
+                            <select id="clss" class="form-control">
+                            <option id="clss">Reception</option>
+                            <option id="clss">Transition</option>
+                            <option id="clss">Kindergarten</option>
+                            <option id="clss">Nursery 1</option>
+                            <option id="clss">Nursery 2</option>
+                            <option id="clss">Grade 1</option>
+                            <option id="clss">Grade 2</option>
+                            <option id="clss">Grade 3</option>
+                            <option id="clss">Grade 4</option>
+                            <option id="clss">Grade 5</option>
+                            <option id="clss">J.S.S 1</option>
+                            <option id="clss">J.S.S 2</option>
+                            <option id="clss">J.S.S 3</option>
+                            <option id="clss">S.S.S 1</option>
+                            <option id="clss">S.S.S 2</option>
+                            <option id="clss">S.S.S 3</option>
+                       </select>
+                        </div>-->
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Select a <?php echo $data ?> student/pupil .:</label>
-
-                            <select id="clss" class="form-control">
-                                <?php
-                          $sql = "SELECT * FROM student WHERE `class` = '$data' ORDER BY `name` asc";
+                            <label for="exampleInputPassword1">Academic Session.:</label>
+                            <select id="ses" class="form-control">
+                            <?php
+                          $sql = "SELECT * FROM fee GROUP BY `ses` ORDER BY `fee` asc";
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
                           ?>
 
-                                <optgroup label="<?php echo $row['name'] ?>">
-                                    <option name="class" id="clss"><?php echo $row['adid'] ?>
-                                    </option>
-                                </optgroup>
-                                <?php
-                        }
-                        ?>
-                            </select>
-
+                               <option name="ses" id="ses"><?php echo $row['ses'] ?>
+                               </option>
+                         <?php
+                          }
+                          ?>
+                       </select>
                         </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Academic Session.:</label>
-                            <input type="text" id="sbjyear" name="sbjyear" class="form-control"
-                                value="<?php echo $_SESSION['aca']; ?>" disabled>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="classer" name="sbjyear" class="form-control"
-                                value="<?php echo $data; ?>" hidden>
-                        </div>
-
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select Term .:</label>
@@ -82,6 +107,7 @@ $data = $_GET['id'];
                         <button type="button" id="chkres" class="btn btn-danger btn-outline-light">Preview
                             Record</button>
                     </form>
+                   
                 </div>
                 <!-- /.card-body -->
 
@@ -166,15 +192,15 @@ $(function() {
 document.getElementById('chkres').addEventListener('click', getResult);
 
 function getResult() {
-    var x = document.forms["printres"]["clss"].value;
-    var y = document.forms["printres"]["ressbj"].value;
-    var z = document.forms["printres"]["classer"].value;
+    var w = document.forms["printres"]["fee"].value;
+    var y = document.forms["printres"]["ses"].value;
+    var z = document.forms["printres"]["ressbj"].value;
     if (y == null || y == "") {
         $(toastr.error('Please select a term'));
         return false;
     }
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', './result?id=' + x + '&other=' + y + '&cls=' + z, true);
+    xhr.open('GET', './cusresult?id=' + w + '&ses=' + y + '&trm=' + z, true);
 
     xhr.onload = function() {
         if (xhr.status == 200) {

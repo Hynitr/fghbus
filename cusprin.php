@@ -17,7 +17,12 @@ $vfh = mysqli_fetch_array($result);
 
 $mm = $vfh['amt'];
 
+if($vfh['type'] == 'Full Payment') {
+    $bal = 0;
+} else {
+
 $bal = $amt - $mm;
+}
 ?>
 <!DOCTYPE html>
 <html>
