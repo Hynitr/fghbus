@@ -92,14 +92,14 @@ while($row= mysqli_fetch_array($result_set))
     }
           ?>
                               
-                                <td><?php echo $row['admno']; ?> <br/><a href="./deletecus?id=<?php echo $row['cusid'] ?>&cls=<?php echo $fee ?>"><button
+                                <td><?php echo $row['admno']; ?> <!--<br/><a href="./deletecus?id=<?php echo $row['cusid'] ?>&cls=<?php echo $fee ?>"><button
                                             type="button" data-toggle="tooltip" title="Delete fee"
                                             class="btn btn-tool"><i class="fas fa-trash text-danger"></i>
                                         </button></a> | <a
                                         href="./editcus?id=<?php echo $row['cusid'] ?>&cls=<?php echo $fee ?>"><button
                                     type="button" data-toggle="tooltip" title="Edit Intake" class="btn btn-tool"><i
                                         class="fas fa-edit text-danger"></i>
-                                </button></a></td>
+                                </button></a>--></td>
                                 <td><?php echo $row['name']; ?></td>
                                 <td><?php echo $row['class']; ?></td>
                                 <td class="font-weight-bolder text-danger"><?php echo number_format($res['total']); ?></td>
