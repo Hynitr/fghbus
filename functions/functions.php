@@ -900,9 +900,7 @@ if(isset($_POST['cinmdd']) && isset($_POST['cinfee']) && isset($_POST['cinstd'])
 	$ins .= "VALUES('$cusid', '$std', '$name', '$clas', '$term', '$ses', '$fee', '$dat', '$mddr', '$mdd')";
 	$isl = query($ins);
 
-	$_SESSION['done'] = 'fee inputted successfully';
-
-	echo '<script>window.location.href ="./custom?id='.$cfe.'"</script>';
+	echo '<script>window.location.href ="./cusprin?id='.$cusid.'&data='.$cfe.'"</script>';
 	}
 }
 

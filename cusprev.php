@@ -38,21 +38,23 @@ include("functions/top.php");
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select a custom fee .:</label>
-                            <?php
+
+                            <select id="fee" class="form-control">
+
+                                <?php
                           $sql = "SELECT * FROM fee ORDER BY `fee` asc";
                           $rsl = query($sql);
                           while ($row = mysqli_fetch_array($rsl)) {
                           ?>
-                            <select id="fee" class="form-control">
-
-
                                 <option name="fee" id="fee"><?php echo $row['fee'] ?>
                                 </option>
 
-                            </select>
-                            <?php
+                                <?php
                           }
                           ?>
+
+                            </select>
+
                         </div>
 
                         <!-- <div class="form-group">

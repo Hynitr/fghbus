@@ -9,14 +9,16 @@ $fsl = "SELECT * FROM feercrd WHERE `feeid` = '$more'";
 $fes = query($fsl);
 $fow = mysqli_fetch_array($fes);
 
+$other = $fow['term'];
+$adid = $data;
+$cfee = $fow['amount'];
+
 //get total paid fee
-$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data' AND `feeid` = '$more'";
+$sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data' AND `term` = '$other'";
 $res = query($sql);
 $row = mysqli_fetch_array($res);
 
-$adid  = $row['adid'];
 $amt   = $row['total'];
-$other = $row['term'];
 
 $ssl = "SELECT * from `student` WHERE `adid` = '$adid'";
 $result = query($ssl);
@@ -104,6 +106,13 @@ if($_SESSION['trm'] == '2nd Term') {
     
 }
 
+##key
+
+#amt == total payment
+#new == last term balance
+#bal == balance for that term
+#amt == total amt paid
+#cfee == current fee paid
 
 ?>
 <!DOCTYPE html>
