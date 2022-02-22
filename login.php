@@ -67,7 +67,7 @@ include("functions/init.php");
         <div class="lockscreen-footer text-center">
             Copyright &copy; <?php echo date("Y"); ?> <b><a href="https://fountainofgoldschool.com.ng"
                     class="text-black">Fountain of Gold School</a></b><br>
-            Developed by <a target="_blank" href="https://doteightplus.com" class="text-black"> DotEightPlus</a>
+            Developed by <a target="_blank" href="https://hynitr.com" class="text-black"> hynitr</a>
         </div>
     </div>
     <!-- /.center -->

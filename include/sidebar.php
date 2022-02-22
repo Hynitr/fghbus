@@ -37,7 +37,7 @@
                     <a href="https://fountainofgoldschool.com.ng" class="nav-link">Website</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="https://doteightplus.com/contact" target="_blank" class="nav-link">Dashboard Help</a>
+                    <a href="https://hynitr.com/contact" target="_blank" class="nav-link">Dashboard Help</a>
                 </li>
             </ul>
 
