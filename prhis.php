@@ -73,7 +73,7 @@ if($_SESSION['trm'] == '2nd Term') {
         } else {
 
         //$bal = $vfh['snd'] - $amt;
-        $bal = $vfh['snd'] + $spillover;
+        $bal = $vfh['snd'] + $spillover - $amt;
             
         }
     }
@@ -111,10 +111,10 @@ if($_SESSION['trm'] == '2nd Term') {
 #amt == total payment
 #new == last term balance
 #bal == balance for that term
-#amt == total amt paid
 #cfee == current fee paid
 
 ?>
+
 <!DOCTYPE html>
 <html>
 

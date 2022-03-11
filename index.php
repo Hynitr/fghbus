@@ -42,11 +42,14 @@ $ses = $_SESSION['aca'];
                             $rsl = query($sql);
                             $row = mysqli_fetch_array($rsl);
 
-                            $ssl = "SELECT sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
+                            $ssl = "SELECT *,sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
                             $rel = query($ssl);
                             $rww = mysqli_fetch_array($rel);
 
-                            $all = $row['tota'] - $rww['tot'];
+                            $qty = $rww['qty'];
+                            $totxp = $qty * $rww['tot'];
+
+                            $all = $row['tota'] - $totxp;
                            
  
          ?>
@@ -67,14 +70,17 @@ $ses = $_SESSION['aca'];
                             <span class="info-box-text text-danger font-weight-bolder">Total Expenses</span>
 
                             <?php
-                             $ssl = "SELECT sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
+                             $ssl = "SELECT *,sum(`amount`) as tot FROM `tracker` WHERE `term` = '$trm'  AND `session` = '$ses'";
                              $rel = query($ssl);
                              $rww = mysqli_fetch_array($rel);
+
+                             $qty = $rww['qty'];
+                             $totxp = $qty * $rww['tot'];
 ?>
 
 
                             <span
-                                class="info-box-number text-danger font-weight-bolder">₦<?php  echo number_format($rww['tot']); ?></span>
+                                class="info-box-number text-danger font-weight-bolder">₦<?php  echo number_format($totxp); ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -89,46 +95,46 @@ $ses = $_SESSION['aca'];
                             <span class="info-box-text text-success font-weight-bolder">Total Unpaid Fees</span>
                             <?php
 
-                            $sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
-                            $rsl = query($sql);
-                            $row = mysqli_fetch_array($rsl);
+$sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
+$rsl = query($sql);
+$row = mysqli_fetch_array($rsl);
 
 
-                            if($trm == '1st Term') {
-		
-                                $ssl = "SELECT sum(fst) as totas FROM `student` WHERE `session` = '$ses'";
-                                $rrl = query($ssl);
-                                $rsw = mysqli_fetch_array($rrl);
+if($trm == '1st Term') {
 
-                                
-                            } else {
-                        
-                            if($trm == '2nd Term'){
-                        
-                                $ssl = "SELECT sum(snd) as totas FROM `student` WHERE `session` = '$ses'";
-                                $rrl = query($ssl);
-                                $rsw = mysqli_fetch_array($rrl);
+    $ssl = "SELECT sum(fst) as totas FROM `student` WHERE `session` = '$ses'";
+    $rrl = query($ssl);
+    $rsw = mysqli_fetch_array($rrl);
 
-                            }else {
-                        
-                            if($trm == '3rd Term') {
-                                
-                                $ssl = "SELECT sum(trd) as totas FROM `student` WHERE `session` = '$ses'";
-                                $rrl = query($ssl);
-                                $rsw = mysqli_fetch_array($rrl);
-                            }
-                            }
-                            }
-                            
+    
+} else {
 
-                            
+if($trm == '2nd Term'){
 
-                            $total = $rsw['totas'] - $row['tota'];
+    $ssl = "SELECT sum(snd) as totas FROM `student` WHERE `session` = '$ses'";
+    $rrl = query($ssl);
+    $rsw = mysqli_fetch_array($rrl);
+
+}else {
+
+if($trm == '3rd Term') {
+    
+    $ssl = "SELECT sum(trd) as totas FROM `student` WHERE `session` = '$ses'";
+    $rrl = query($ssl);
+    $rsw = mysqli_fetch_array($rrl);
+}
+}
+}
 
 
-                 
- 
-         ?>
+
+
+$total = $rsw['totas'] - $row['tota'];
+
+
+
+
+?>
                             <span
                                 class="info-box-number text-success font-weight-bolder">₦<?php echo number_format($total); ?></span>
                         </div>
@@ -196,7 +202,7 @@ $ses = $_SESSION['aca'];
                                 <div class="card-body">
                                     <p class="card-text">Click here to view pending and uncompleted payments of
                                         students/pupils</p>
-                                    <a href="./debtors" class="btn btn-primary">Debtors Page</a>
+                                    <a href="./debt" class="btn btn-primary">Debtors Page</a>
                                 </div>
                             </div>
                         </div>
