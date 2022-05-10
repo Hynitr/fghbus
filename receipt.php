@@ -85,7 +85,7 @@ if($_SESSION['trm'] == '2nd Term') {
     if($_SESSION['trm'] == '3rd Term') {
 
     //get all payement record
-    $sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student AND `adid` = '$adid'";
+    $sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student WHERE `adid` = '$adid'";
     $res = query($sql);
     $row = mysqli_fetch_array($res);
     
