@@ -94,26 +94,33 @@ if($other == '3rd Term') {
   
     $trdfee = $vfh['trd'];
 
-    //get pending payments in first term and second term
-    $spql = "SELECT * FROM spillover WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
-    $sprels = query($spql);
-    $sow = mysqli_fetch_array($sprels);
+  //get pending payments in first term and second term
+  $spql = "SELECT * FROM spillover WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
+  $sprels = query($spql);
+  $sow = mysqli_fetch_array($sprels);
+
   
-    
-    //Get ending balance in first term and second term
-    $fstpend  = $sow['fst'];
-    $sndpend  = $sow['snd'];
+  //Get ending balance in first term
+  $fstpend  = $sow['fst'];
+  $sndpend  = $sow['snd'];
   
-    //get all payment made in this term
-    $dql = "SELECT sum(`amount`) as total FROM feercrd WHERE `term` = '3rd Term' AND `adid` = '$adid'";
-    $des = query($dql);
-    $dow = mysqli_fetch_array($des);
-  
-    $feepaid = $dow['total'];
-  
-    $spillover = $fstpend;
-  
-    $bal = ($sndfee - $feepaid) + $spillover;
+
+  //get all payment made in this term
+  $dql = "SELECT sum(`amount`) as total FROM feercrd WHERE `term` = '3rd Term' AND `adid` = '$adid'";
+  $des = query($dql);
+  $dow = mysqli_fetch_array($des);
+
+  $feepaid = $dow['total'];
+
+  $spillover = $fstpend + $sndpend;
+
+  $bal = ($trdfee - $feepaid) + $spillover;
+
+  $trdbalspill = $trdfee - $feepaid;
+
+  //update spillover for 3rd term
+  $spul = "UPDATE spillover SET `trd` = '$trdbalspill' WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
+  $spel = query($spul);
     
 }
 }
@@ -289,7 +296,7 @@ if($other == '3rd Term') {
                 <td>₦<?php echo number_format($fow['amount']) ?></td>
             </tr>
             <?php
-            if($_SESSION['trm'] == '2nd Term') {
+            if($other == '2nd Term') {
 
                 echo '
                 <tr class="item">
@@ -298,17 +305,44 @@ if($other == '3rd Term') {
             <td>₦'.number_format($spillover).'</td>
             </tr>
             ';
+
+            echo '
+                <tr class="item">
+                <td>2nd Term Balance</td>
+
+            <td>₦'.number_format($sndbalspill).'</td>
+            </tr>
+            ';
             } 
 
-            if($_SESSION['trm'] == '3rd Term') {
+            if($other == '3rd Term') {
 
                 echo '
                 <tr class="item">
-                <td>2nd Term Pending Balance</td>
+                
+                <td>1st Term Pending Balance</td>
 
-            <td>₦'.number_format($spillover).'</td>
+            <td>₦'.number_format($fstpend).'</td>
             </tr>
             ';
+
+            echo '
+            <tr class="item">
+            
+            <td>2nd Term Pending Balance</td>
+
+        <td>₦'.number_format($sndpend).'</td>
+        </tr>
+        ';
+
+        echo '
+            <tr class="item">
+            
+            <td>3rd Term Pending Balance</td>
+
+        <td>₦'.number_format($trdbalspill).'</td>
+        </tr>
+        ';
             } 
             ?>
 
@@ -319,7 +353,7 @@ if($other == '3rd Term') {
             <tr class="total">
                 <td></td>
 
-                <td style="color: red;">Balance Left: ₦<?php echo number_format($bal) ?></td>
+                <td style="color: red;">Total Balance Left: ₦<?php echo number_format($bal) ?></td>
 
             </tr>
         </table>

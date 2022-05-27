@@ -10,20 +10,21 @@ echo md5("adminlogin");
 # Name of column containing names = full_name
 # Simply change the table and column name to what corresponds with your dataset
 
-/*$sql = "SELECT * FROM feercrd";
+$sql = "SELECT * FROM student";
 $res = query($sql);
-while($row = mysqli_fetch_array($res)) {
+while($fow = mysqli_fetch_array($res)) {
 
-    $string = $row['name'];
-    $id = $row['feeid'];
+$adid = $fow['adid'];
+$name = $fow['name'];
+$ses = $fow['session'];
+$class = $fow['class'];
 
-    $output = strtok($string,  ' ');
-    
-    //echo $output;
+$spilid = 'fgsspill/'.rand(0, 9999);
+$date   = date("Y-m-d h:i:sa");
 
-$sel = "UPDATE feercrd SET `fname` = '$output' WHERE `feeid` = '$id'";
-$rel = query($sel);
-echo confirm($rel);
+    $spilql = "INSERT INTO spillover(`spillid`, `adid`, `name`, `class`, `session`, `fst`, `snd`, `trd`, `datespill`)";
+    $spilql .= "VALUES('$spilid', '$adid', '$name', '$class', '$ses', '0', '0', '0', '$date')";
+    $spres = query($spilql);
 
 }
 
