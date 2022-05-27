@@ -660,7 +660,7 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 
 	}
-
+}
 
 
 
