@@ -299,7 +299,7 @@ if($_SESSION['trm'] == '2nd Term') {
                 <tr class="item">
                 <td>2nd Term Pending Balance</td>
 
-            <td>₦'.$spillover.'</td>
+            <td>₦'.number_format($spillover).'</td>
             </tr>
             ';
             } 

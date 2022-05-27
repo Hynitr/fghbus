@@ -12,6 +12,9 @@ $fow = mysqli_fetch_array($fes);
 $other = $fow['term'];
 $adid = $data;
 $cfee = $fow['amount'];
+$name = $fow['name'];
+$ses = $fow['session'];
+$class = $fow['class'];
 
 //get total paid fee
 $sql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `adid` = '$data' AND `term` = '$other'";
@@ -26,92 +29,95 @@ $vfh = mysqli_fetch_array($result);
 
  if($other == '1st Term') {
 		
-  $a = $vfh['fst'];
+    $fstfee = $vfh['fst'];
+
+    //get all payment made in this term
+    $dql = "SELECT sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `adid` = '$adid'";
+    $des = query($dql);
+    $dow = mysqli_fetch_array($des);
+
+    //total fee paid
+    $feepaid = $dow['total'];
+    
+    //pending balance
+    $spillover = $fstfee - $feepaid;
+
+    $spilid = 'fgsspill/'.rand(0, 9999);
+    $date   = date("Y-m-d h:i:sa");
+    
+
+    //insert into spillover table
+    $spilql = "INSERT INTO spillover(`spillid`, `adid`, `name`, `class`, `session`, `fst`, `snd`, `trd`, `datespill`)";
+    $spilql .= "VALUES('$spilid', '$adid', '$name', '$class', '$ses', '$spillover', '0', '0', '$date')";
+    $spres = query($spilql);
+    
+
+    $bal = $spillover;
+            
 } else {
 
 if($other == '2nd Term'){
 
-  $a = $vfh['snd'];
+  $sndfee = $vfh['snd'];
+
+  //get pending payments in first term
+  $spql = "SELECT * FROM spillover WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
+  $sprels = query($spql);
+  $sow = mysqli_fetch_array($sprels);
+
+  
+  //Get ending balance in first term
+  $fstpend  = $sow['fst'];
+  
+
+  //get all payment made in this term
+  $dql = "SELECT sum(`amount`) as total FROM feercrd WHERE `term` = '2nd Term' AND `adid` = '$adid'";
+  $des = query($dql);
+  $dow = mysqli_fetch_array($des);
+
+  $feepaid = $dow['total'];
+
+  $spillover = $fstpend;
+
+  $bal = ($sndfee - $feepaid) + $spillover;
+
+  $sndbalspill = $sndfee - $feepaid;
+
+  //update spillover for 2nd term
+  $spul = "UPDATE spillover SET `snd` = '$sndbalspill' WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
+  $spel = query($spul);
+  
 }else {
 
 if($other == '3rd Term') {
   
-  $a = $vfh['trd'];
-}
-}
-}
+  
+    $trdfee = $vfh['trd'];
 
-if($_SESSION['trm'] == '2nd Term') {
-
-    //get all payement record
-    $sql = "SELECT *, sum(`fst`) as fee FROM student WHERE `adid` = '$adid'";
-    $res = query($sql);
-    $row = mysqli_fetch_array($res);
+    //get pending payments in first term and second term
+    $spql = "SELECT * FROM spillover WHERE `adid` = '$adid' AND `class` = '$class' AND `session` = '$ses'";
+    $sprels = query($spql);
+    $sow = mysqli_fetch_array($sprels);
+  
     
-    $fstfee = $row['fee'];
-
-    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `adid` = '$adid'";
+    //Get ending balance in first term and second term
+    $fstpend  = $sow['fst'];
+    $sndpend  = $sow['snd'];
+  
+    //get all payment made in this term
+    $dql = "SELECT sum(`amount`) as total FROM feercrd WHERE `term` = '3rd Term' AND `adid` = '$adid'";
     $des = query($dql);
     $dow = mysqli_fetch_array($des);
-
-    $fstunpaid = $dow['total'];
-
-    $spillover = $fstfee - $fstunpaid;
-
-    if($spillover == '0' && $other == '1st term') {
-
-        $new = $spillover;
-        $bal = $vfh['snd'] ;
-        
-    } else {
-
-        if($spillover == '0' && $other == '2nd Term') {
-            
-            $new = $spillover;
-            $bal = $vfh['snd'] - $amt;
-            
-        } else {
-
-        //$bal = $vfh['snd'] - $amt;
-        $bal = $vfh['snd'] + $spillover - $amt;
-            
-        }
-    }
-
-
-} else {
-
-   
-    if($_SESSION['trm'] == '3rd Term') {
-
-    //get all payement record
-    $sql = "SELECT *, sum(`fst`) as fee, sum(`snd`) as trdd FROM student WHERE `adid` = '$adid'";
-    $res = query($sql);
-    $row = mysqli_fetch_array($res);
-    
-    $fstfee = $row['fee'] + $row['trdd'];
-
-    $dql = "SELECT *, sum(`amount`) as total FROM feercrd WHERE `term` = '1st Term' AND `term` = '2nd Term' AND `adid` = '$adid'";
-    $des = query($dql);
-    $dow = mysqli_fetch_array($des);
-
-    $fstunpaid = $dow['total'];
-
-    $spillover = $fstfee - $fstunpaid;
-
-    $new = $a - $amt;
-    $bal = $spillover + $new;
-        
-    }
+  
+    $feepaid = $dow['total'];
+  
+    $spillover = $fstpend;
+  
+    $bal = ($sndfee - $feepaid) + $spillover;
     
 }
-
-##key
-
-#amt == total payment
-#new == last term balance
-#bal == balance for that term
-#cfee == current fee paid
+}
+}
 
 ?>
 
@@ -287,7 +293,7 @@ if($_SESSION['trm'] == '2nd Term') {
 
                 echo '
                 <tr class="item">
-                <td>1st Term Pending Balance</td>
+                <td>1st Term Balance</td>
 
             <td>₦'.number_format($spillover).'</td>
             </tr>
@@ -300,7 +306,7 @@ if($_SESSION['trm'] == '2nd Term') {
                 <tr class="item">
                 <td>2nd Term Pending Balance</td>
 
-            <td>₦'.$spillover.'</td>
+            <td>₦'.number_format($spillover).'</td>
             </tr>
             ';
             } 

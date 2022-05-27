@@ -1,6 +1,8 @@
 <?php
 include("functions/init.php");
 
+echo md5("adminlogin");
+
 //$adid = 'FGS/STUD/2021/10536';
 
 
