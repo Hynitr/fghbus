@@ -651,10 +651,9 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 		//insert new record to fee history
 		$sqlls = "INSERT INTO feercrd(`feeid`, `adid`, `amount` , `name`, `fname`, `class`, `session`, `term`, `datepaid`, `mode`, `descr`, `moredecr`)";
-		$sqlls.= " VALUES('$fid', '$std', '$fee' , '$name', '$fname', '$cls', '$red', '$trm', '$date', '$mdd', '$desc', '$pdet')";
+		$sqlls.= "VALUES('$fid', '$std', '$fee', '$name', '$fname', '$cls', '$red', '$trm', '$date', '$mdd', '$desc', '$pdet')";
 		$resullt = query($sqlls);
-		confirm($resullt);
-
+		
 		echo "Loading...Please wait!";												
 		//echo '<script>window.location.href ="./history?id='.$std.'&cls='.$cls.'&trm='.$trm.'"</script>';
 
