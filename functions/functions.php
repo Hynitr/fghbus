@@ -183,9 +183,14 @@ if(isset($_POST['pname']) && isset($_POST['clss']) && isset($_POST['fst']) && is
 	$der = $_SESSION['aca'];
 
 	
+	//get first name
+	$string = $pname;
+	$fname = strtok($string,  ' ');
+
+	
 		
-		$sqll = "INSERT INTO student(`name`, `class` , `fst`, `snd`, `trd`, `stid`, `session`, `adid`)";
-		$sqll.= " VALUES('$pname', '$clss' , '$fst', '$snd', '$trd', '$fid', '$der', '$adid')";
+		$sqll = "INSERT INTO student(`name`, `fname`, `class` , `fst`, `snd`, `trd`, `stid`, `session`, `adid`)";
+		$sqll.= " VALUES('$pname', '$fname', '$clss' , '$fst', '$snd', '$trd', '$fid', '$der', '$adid')";
 		$resullt = query($sqll);
 		confirm($resullt);
 
@@ -229,11 +234,17 @@ if(isset($_POST['uplpname']) && isset($_POST['uplclss']) && isset($_POST['uplfst
 
 	
 
-	$der = $_SESSION['aca'];
+		$der = $_SESSION['aca'];
+
+
+		//get first name
+		$string = $pname;
+		$fname = strtok($string,  ' ');
+	
 
 	
 		//update db
-		$sqll = "UPDATE student SET `name` = '$uplpname', `class` = '$uplclss', `fst` = '$uplfst', `snd` = '$uplsnd', `trd` = '$upltrd', `adid` = '$adid' WHERE `session` = '$der' AND `stid` = '$stid'";
+		$sqll = "UPDATE student SET `name` = '$uplpname', `fname` = '$fname', `class` = '$uplclss', `fst` = '$uplfst', `snd` = '$uplsnd', `trd` = '$upltrd', `adid` = '$adid' WHERE `session` = '$der' AND `stid` = '$stid'";
 		$resullt = query($sqll);
 		confirm($resullt);
 
@@ -611,6 +622,7 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 	
 
+	
 	//validate amount given
 	$ssl = "SELECT SUM(`amount`) AS total FROM feercrd WHERE `adid` = '$std' AND `session` = '$red' AND `term` = '$trm'";
 	$res = query($ssl);
@@ -626,10 +638,20 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 	//deduct term fee from total paid and get balance
 	$new = $a - $tot;
 
+	//get first name
+	$string = $name;
+    $fname = strtok($string,  ' ');
+	
+
+	//check amount paid
+	if($fee > $new) {
+
+		echo "The fee inputted is greater than the fee stated for this term";
+	} else {
 
 		//insert new record to fee history
-		$sqlls = "INSERT INTO feercrd(`feeid`, `adid`, `amount` , `name`, `class`, `session`, `term`, `datepaid`, `mode`, `descr`, `moredecr`)";
-		$sqlls.= " VALUES('$fid', '$std', '$fee' , '$name', '$cls', '$red', '$trm', '$date', '$mdd', '$desc', '$pdet')";
+		$sqlls = "INSERT INTO feercrd(`feeid`, `adid`, `amount` , `name`, `fname`, `class`, `session`, `term`, `datepaid`, `mode`, `descr`, `moredecr`)";
+		$sqlls.= " VALUES('$fid', '$std', '$fee' , '$name', '$fname', '$cls', '$red', '$trm', '$date', '$mdd', '$desc', '$pdet')";
 		$resullt = query($sqlls);
 		confirm($resullt);
 
