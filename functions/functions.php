@@ -715,13 +715,7 @@ if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) &
 
 	//deduct term fee from total paid and get balance
 	$new = $a - $tot;
-	
 
-	//check amount paid
-	if($edfee > $new) {
-
-		echo "The fee inputted is greater than the fee stated for this term";
-	} else {
 
 		//insert new record to fee history
 		$sqlls = "UPDATE feercrd SET `amount` = '$edfee' , `term` = '$edtrm', `mode` = '$edmdd', `descr` = '$eddesc', `moredecr` = '$edpdet', `datepaid` = '$date' WHERE `feeid` = '$edcls'";
@@ -732,11 +726,6 @@ if (isset($_POST['edstd']) && isset($_POST['edtrm']) && isset($_POST['edfee']) &
 		//create notification
 		$_SESSION['notify'] = "Fee Updated Sucessfully";
 		echo '<script>window.location.href ="./history?id='.$edstd.'&cls='.$class.'&trm='.$edtrm.'"</script>';
-
-
-	}
-	
-	
 }
 
 

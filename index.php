@@ -94,45 +94,54 @@ $ses = $_SESSION['aca'];
                         <div class="info-box-content">
                             <span class="info-box-text text-success font-weight-bolder">Total Unpaid Fees</span>
                             <?php
+                           
 
-$sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
-$rsl = query($sql);
-$row = mysqli_fetch_array($rsl);
+                            //total fee paid
+                            $sql = "SELECT sum(`amount`) as tota FROM `feercrd` WHERE `term` = '$trm'  AND `session` = '$ses'";
+                            $rsl = query($sql);
+                            $row = mysqli_fetch_array($rsl);
 
+                            $feepaid = $row['tota'];
 
-if($trm == '1st Term') {
+                            if($trm == '1st Term') {
 
-    $ssl = "SELECT sum(fst) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
+                            //total fee inputed
+                            $ssl = "SELECT sum(`fst`) as fee FROM `student` WHERE `session` = '$ses'";
+                            $sel = query($ssl);
+                            $fow = mysqli_fetch_array($sel);
 
-    
-} else {
+                            $fee = $fow['fee'];
 
-if($trm == '2nd Term'){
+                            } else {
 
-    $ssl = "SELECT sum(snd) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
+                            if($trm == '2nd Term') {
 
-}else {
+                            //total fee inputed
+                            $ssl = "SELECT sum(`snd`) as fee FROM `student` WHERE `session` = '$ses'";
+                            $sel = query($ssl);
+                            $fow = mysqli_fetch_array($sel);
 
-if($trm == '3rd Term') {
-    
-    $ssl = "SELECT sum(trd) as totas FROM `student` WHERE `session` = '$ses'";
-    $rrl = query($ssl);
-    $rsw = mysqli_fetch_array($rrl);
-}
-}
-}
+                            $fee = $fow['fee'];
 
 
+                            } else {
 
+                            if($trm == '3rd Term') {
 
-$total = $rsw['totas'] - $row['tota'];
+                            //total fee inputed
+                            $ssl = "SELECT sum(`trd`) as fee FROM `student` WHERE `session` = '$ses'";
+                            $sel = query($ssl);
+                            $fow = mysqli_fetch_array($sel);
 
-
-
+                            $fee = $fow['fee'];
+                                
+                            }
+                            }
+                            }
+                           
+                                 
+                            //total fee inputted - total fee paid
+                            $total = $fee - $feepaid
 
 ?>
                             <span
@@ -147,12 +156,23 @@ $total = $rsw['totas'] - $row['tota'];
                     <div class="info-box">
                         <span class="info-box-icon bg-danger"><i class="fas fa-history"></i></span>
 
+
+                        <?php 
+
+                                $spql = "SELECT sum(`fst`) as fstpend, sum(`snd`) as sndpend, sum(`trd`) as trdpend FROM spillover WHERE `session` = '$ses'";
+                                $sprels = query($spql);
+                                $sow = mysqli_fetch_array($sprels);
+
+
+                                $spill = $sow['fstpend'] + $sow['sndpend'] + $sow['trdpend'];
+                               
+                               ?>
+
                         <div class="info-box-content">
                             <span class="info-box-text text-danger font-weight-bolder">Total Spill Over</span>
                             <span class="info-box-number text-danger font-weight-bolder">₦
-                                <?php 
-                            
-                                echo termlyspillover(); ?></span>
+                                <?php echo number_format($spill); ?>
+                            </span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
