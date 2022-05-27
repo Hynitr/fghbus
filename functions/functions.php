@@ -625,13 +625,7 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 	//deduct term fee from total paid and get balance
 	$new = $a - $tot;
-	
 
-	//check amount paid
-	if($fee > $new) {
-
-		echo "The fee inputted is greater than the fee stated for this term";
-	} else {
 
 		//insert new record to fee history
 		$sqlls = "INSERT INTO feercrd(`feeid`, `adid`, `amount` , `name`, `class`, `session`, `term`, `datepaid`, `mode`, `descr`, `moredecr`)";
@@ -644,9 +638,6 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 
 
 	}
-	
-	
-}
 
 
 
