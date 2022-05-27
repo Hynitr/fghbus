@@ -640,7 +640,7 @@ if (isset($_POST['std']) && isset($_POST['trm']) && isset($_POST['fee']) && isse
 		confirm($resullt);
 
 		echo "Loading...Please wait!";												
-		echo '<script>window.location.href ="./history?id='.$std.'&cls='.$cls.'&trm='.$trm.'"</script>';
+		//echo '<script>window.location.href ="./history?id='.$std.'&cls='.$cls.'&trm='.$trm.'"</script>';
 
 
 	}
