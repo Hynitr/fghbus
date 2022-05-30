@@ -740,6 +740,17 @@
                         </li>
                         <br />
                         <li class="nav-item has-treeview">
+                            <a href="./chpword" class="nav-link">
+                                <i class="nav-icon fas fa-key"></i>
+                                <p>
+                                    Change Password
+                                    <i class="fas fa-angle-right right"></i>
+                                </p>
+                            </a>
+                        </li>
+
+                        <br />
+                        <li class="nav-item has-treeview">
                             <a href="./logout" class="nav-link">
                                 <i class="nav-icon fas fa-lock"></i>
                                 <p>

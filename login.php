@@ -33,7 +33,7 @@ include("functions/init.php");
             <a href="https://fountainofgoldschool.com.ng"><b>FOGS Bursary</b></a>
         </div>
         <!-- User name -->
-        <div class="lockscreen-name">Admin Login</div>
+        <div class="lockscreen-name" id="lgmsg">Admin Login</div>
 
 
         <!-- START LOCK SCREEN ITEM -->
@@ -60,46 +60,61 @@ include("functions/init.php");
 
         </div>
         <!-- /.lockscreen-item -->
-        <div class="help-block text-center">
+        <div class="help-block text-center" id="lgmsgr">
             Enter your password to retrieve your session
         </div>
 
-        <div class="lockscreen-footer text-center">
-            Copyright &copy; <?php echo date("Y"); ?> <b><a href="https://fountainofgoldschool.com.ng"
-                    class="text-black">Fountain of Gold School</a></b><br>
-            Developed by <a target="_blank" href="https://hynitr.com" class="text-black"> hynitr</a>
-        </div>
-    </div>
-    <!-- /.center -->
+        <div class="help-block text-center mt-3">
+            <a href="./reset">forgot password? Click here to reset password
+            </a>
+            <div>
+
+                <div class="lockscreen-footer text-center">
+                    Copyright &copy; <?php echo date("Y"); ?> <b><a href="https://fountainofgoldschool.com.ng"
+                            class="text-black">Fountain of Gold School</a></b><br>
+                    Developed by <a target="_blank" href="https://hynitr.com" class="text-black"> hynitr</a>
+                </div>
+            </div>
+            <!-- /.center -->
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="ModalCenter">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Modal -->
+            <div class="modal fade" id="ModalCenter">
+                <div class="modal-dialog modal-dialog-centered" role="document">
 
-        </div>
-    </div>
+                </div>
+            </div>
 
 
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- SweetAlert2 -->
-    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Toastr -->
-    <script src="plugins/toastr/toastr.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-    });
-    </script>
-    <script src="ajax.js"></script>
+            <!-- jQuery -->
+            <script src="plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- SweetAlert2 -->
+            <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+            <!-- Toastr -->
+            <script src="plugins/toastr/toastr.min.js"></script>
+            <script type="text/javascript">
+            $(function() {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            });
+            </script>
+            <script src="ajax.js"></script>
 </body>
 
 </html>
+
+<?php
+if(isset($_GET['notify'])) {
+
+    echo "
+    <script>document.getElementById('lgmsg').innerHTML = 'Password successfully reset.';</script>
+    <script>document.getElementById('lgmsgr').innerHTML = 'Check your software manual for the default password';</script>
+    ";
+}
+?>
